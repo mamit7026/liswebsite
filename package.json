@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",
+    "test": "node tests/test-suite.js",
     "seed": "node src/config/seed.js",
     "clear": "node src/config/clearData.js"
   },
