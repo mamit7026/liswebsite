@@ -1,0 +1,91 @@
+<%- include('../partials/head') %>
+<%- include('../partials/navbar') %>
+
+<!-- Header -->
+<div class="py-5 bg-light border-bottom" style="background-color: var(--bg-light) !important;">
+  <div class="container py-4">
+    <span class="badge bg-primary text-white mb-2 px-3 py-1">INFRASTRUCTURE MODULES</span>
+    <h1 class="fw-bold mb-3 display-5">Enterprise Technology Modules</h1>
+    <p class="lead text-muted mb-0" style="max-width: 720px;">
+      Modular, decoupled building blocks engineered for continuous high-throughput uptime, multi-analyzer synchronization, and bulletproof clinical compliance.
+    </p>
+  </div>
+</div>
+
+<!-- Products List -->
+<div class="section-padding">
+  <div class="container">
+    <div class="d-flex flex-column gap-5">
+      <% if (typeof products !== 'undefined' && products && products.length > 0) { %>
+        <% products.forEach(prod => { %>
+          <div class="p-4 p-md-5 bg-white border rounded-4 shadow-sm" id="<%= prod.slug %>">
+            <div class="row align-items-center">
+              
+              <div class="col-lg-7 mb-4 mb-lg-0">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-2 py-1"><%= prod.category %></span>
+                  <span class="badge bg-success-subtle text-success border border-success-subtle px-2 py-1"><%= prod.badge %></span>
+                </div>
+                <h2 class="fw-bold mb-2"><%= prod.name %></h2>
+                <div class="fw-semibold text-secondary mb-3" style="color: var(--secondary) !important;"><%= prod.tagline %></div>
+                <p class="text-muted mb-4"><%= prod.summary %></p>
+
+                <h6 class="fw-bold text-dark mb-2">Core Capabilities:</h6>
+                <ul class="feature-check-list mb-4">
+                  <% (prod.capabilities || []).forEach(cap => { %>
+                    <li>
+                      <i class="bi bi-check2-circle"></i>
+                      <span><%= cap %></span>
+                    </li>
+                  <% }) %>
+                </ul>
+
+                <div class="d-flex flex-wrap gap-2">
+                  <button type="button" class="btn btn-primary-omni" data-bs-toggle="modal" data-bs-target="#demoModal">
+                    <i class="bi bi-play-circle me-1"></i> Request Live Demo
+                  </button>
+                  <a href="/contact" class="btn btn-outline-omni">
+                    Contact Specialist
+                  </a>
+                </div>
+              </div>
+
+              <div class="col-lg-5">
+                <div class="p-4 bg-light rounded-4 border">
+                  <h6 class="fw-bold mb-3 small text-uppercase text-muted">Technical Specifications</h6>
+                  
+                  <div class="d-flex flex-column gap-2 mb-4">
+                    <% (prod.specifications || []).forEach(spec => { %>
+                      <div class="p-3 bg-white rounded border">
+                        <div class="small text-muted"><%= spec.label %></div>
+                        <div class="fw-bold text-dark"><%= spec.value %></div>
+                      </div>
+                    <% }) %>
+                  </div>
+
+                  <div class="small">
+                    <div class="fw-bold text-dark mb-1">Supported Protocols:</div>
+                    <div class="d-flex flex-wrap gap-1">
+                      <% (prod.supportedProtocols || []).forEach(proto => { %>
+                        <span class="badge bg-white text-primary border px-2 py-1"><%= proto %></span>
+                      <% }) %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <div class="p-5 bg-white border rounded-4 text-center">
+          <i class="bi bi-cpu fs-1 text-primary d-block mb-3"></i>
+          <h4 class="fw-bold mb-2">Platform Modules Ready</h4>
+          <p class="text-muted mb-0">Decoupled from static seed sets. Modules can be managed dynamically through MongoDB.</p>
+        </div>
+      <% } %>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

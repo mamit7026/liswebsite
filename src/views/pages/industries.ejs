@@ -1,0 +1,115 @@
+<%- include('../partials/head') %>
+<%- include('../partials/navbar') %>
+
+<!-- Header -->
+<div class="py-5 bg-light border-bottom" style="background-color: var(--bg-light) !important;">
+  <div class="container py-4">
+    <span class="badge bg-primary text-white mb-2 px-3 py-1">SECTORS SERVED</span>
+    <h1 class="fw-bold mb-3 display-5">Tailored for Your Healthcare Ecosystem</h1>
+    <p class="lead text-muted mb-0" style="max-width: 720px;">
+      Discover how OmniLIS aligns with the exact governance, throughput, and integration demands of diverse clinical and scientific institutions.
+    </p>
+  </div>
+</div>
+
+<div class="section-padding">
+  <div class="container">
+    <div class="row g-4">
+      
+      <!-- Industry 1: Hospitals -->
+      <div class="col-lg-6">
+        <div class="p-4 p-md-5 bg-white border rounded-4 shadow-sm h-100 d-flex flex-column">
+          <div class="card-icon-wrap" style="width: 50px; height: 50px; font-size: 1.5rem;">
+            <i class="bi bi-hospital"></i>
+          </div>
+          <h3 class="fw-bold mb-2">Hospital &amp; Regional Health Networks</h3>
+          <p class="text-muted mb-4">
+            Consolidate multi-site core labs, satellite clinics, and STAT emergency testing into one centralized real-time dashboard with seamless EHR bidirectional chart integration.
+          </p>
+          <ul class="feature-check-list mb-4">
+            <li><i class="bi bi-check-circle-fill"></i> Multi-facility accessioning with centralized routing rules</li>
+            <li><i class="bi bi-check-circle-fill"></i> Epic, Cerner/Oracle Health, MEDITECH, Allscripts certified interfaces</li>
+            <li><i class="bi bi-check-circle-fill"></i> STAT ICU turnaround under 20 minutes with automated clinician paging</li>
+          </ul>
+          <div class="mt-auto pt-3 border-top">
+            <button type="button" class="btn btn-outline-omni" data-bs-toggle="modal" data-bs-target="#demoModal">
+              Explore Hospital Solutions &rarr;
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Industry 2: Reference Labs -->
+      <div class="col-lg-6">
+        <div class="p-4 p-md-5 bg-white border rounded-4 shadow-sm h-100 d-flex flex-column">
+          <div class="card-icon-wrap" style="width: 50px; height: 50px; font-size: 1.5rem; background: var(--secondary-light); color: var(--secondary);">
+            <i class="bi bi-buildings"></i>
+          </div>
+          <h3 class="fw-bold mb-2">Commercial Reference Laboratories</h3>
+          <p class="text-muted mb-4">
+            Scale test volumes to millions of specimens annually with automated batch processing, client web ordering portals, and integrated EDI front-end billing.
+          </p>
+          <ul class="feature-check-list mb-4">
+            <li><i class="bi bi-check-circle-fill"></i> High-speed 2D batch scanning for 1,000+ tubes per hour</li>
+            <li><i class="bi bi-check-circle-fill"></i> White-label physician e-requisition and diagnostic report delivery</li>
+            <li><i class="bi bi-check-circle-fill"></i> Built-in RCM claims engine with 96.8% clean first-pass rate</li>
+          </ul>
+          <div class="mt-auto pt-3 border-top">
+            <button type="button" class="btn btn-secondary-omni" data-bs-toggle="modal" data-bs-target="#demoModal">
+              Explore Reference Lab Architecture &rarr;
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Industry 3: Molecular & NGS -->
+      <div class="col-lg-6">
+        <div class="p-4 p-md-5 bg-white border rounded-4 shadow-sm h-100 d-flex flex-column">
+          <div class="card-icon-wrap" style="width: 50px; height: 50px; font-size: 1.5rem;">
+            <i class="bi bi-dna"></i>
+          </div>
+          <h3 class="fw-bold mb-2">Molecular Oncology &amp; Precision Genomics</h3>
+          <p class="text-muted mb-4">
+            Orchestrate library preparation, flow cell clustering, sequencer run folder sync, and secondary bioinformatic variant calling (BWA/GATK/DRAGEN) for clinical sign-off.
+          </p>
+          <ul class="feature-check-list mb-4">
+            <li><i class="bi bi-check-circle-fill"></i> Direct integration with Illumina NovaSeq, NextSeq, and MiSeq</li>
+            <li><i class="bi bi-check-circle-fill"></i> Automated ACMG/AMP clinical variant interpretation workbench</li>
+            <li><i class="bi bi-check-circle-fill"></i> Clinical trial matching and targeted oncology drug therapy links</li>
+          </ul>
+          <div class="mt-auto pt-3 border-top">
+            <button type="button" class="btn btn-outline-omni" data-bs-toggle="modal" data-bs-target="#demoModal">
+              Explore Genomics &rarr;
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Industry 4: Biotech & CROs -->
+      <div class="col-lg-6">
+        <div class="p-4 p-md-5 bg-white border rounded-4 shadow-sm h-100 d-flex flex-column">
+          <div class="card-icon-wrap" style="width: 50px; height: 50px; font-size: 1.5rem; background: var(--secondary-light); color: var(--secondary);">
+            <i class="bi bi-snow2"></i>
+          </div>
+          <h3 class="fw-bold mb-2">Biorepositories, CROs &amp; Life Sciences</h3>
+          <p class="text-muted mb-4">
+            Maintain unbroken chain-of-custody across cryogenic -80&deg;C storage, manage participant informed consent, and track study aliquots with full FDA 21 CFR Part 11 audit trails.
+          </p>
+          <ul class="feature-check-list mb-4">
+            <li><i class="bi bi-check-circle-fill"></i> Dynamic 2D/3D freezer, rack, box, and vial location mapping</li>
+            <li><i class="bi bi-check-circle-fill"></i> Parent-child aliquot tracking with freeze-thaw degradation logs</li>
+            <li><i class="bi bi-check-circle-fill"></i> ISO 20387 and GxP validation support package</li>
+          </ul>
+          <div class="mt-auto pt-3 border-top">
+            <button type="button" class="btn btn-secondary-omni" data-bs-toggle="modal" data-bs-target="#demoModal">
+              Explore Biobanking &rarr;
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

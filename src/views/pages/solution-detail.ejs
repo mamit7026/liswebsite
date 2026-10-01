@@ -1,0 +1,163 @@
+<%- include('../partials/head') %>
+<%- include('../partials/navbar') %>
+
+<!-- Solution Hero Header -->
+<div class="py-5 bg-light border-bottom" style="background-color: var(--bg-light) !important;">
+  <div class="container py-3">
+    <nav aria-label="breadcrumb" class="mb-3">
+      <ol class="breadcrumb mb-0 small">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/solutions">Solutions</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><%= solution.title %></li>
+      </ol>
+    </nav>
+
+    <div class="row align-items-center">
+      <div class="col-lg-8">
+        <span class="badge bg-primary text-white mb-2 px-3 py-1"><%= solution.category %></span>
+        <h1 class="fw-bold mb-3 display-5"><%= solution.title %></h1>
+        <p class="lead text-muted mb-4"><%= solution.tagline %></p>
+
+        <div class="d-flex flex-wrap gap-3">
+          <button type="button" class="btn btn-primary-omni btn-lg" data-bs-toggle="modal" data-bs-target="#demoModal">
+            <i class="bi bi-calendar2-check-fill me-2"></i> Book Architecture Session
+          </button>
+          <a href="#workflow" class="btn btn-outline-omni btn-lg">
+            <i class="bi bi-diagram-3 me-2"></i> View Workflow Architecture
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-4 mt-4 mt-lg-0">
+        <div class="p-4 bg-white rounded-4 border shadow-sm">
+          <div class="small text-uppercase fw-bold text-muted mb-2">Key Metric</div>
+          <div class="fw-bold fs-3 text-primary mb-2"><%= solution.heroHighlight %></div>
+          <div class="d-flex gap-2 flex-wrap">
+            <% (solution.complianceStandards || []).forEach(std => { %>
+              <span class="badge bg-light text-dark border px-2 py-1"><i class="bi bi-shield-check text-success me-1"></i><%= std %></span>
+            <% }) %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Detailed Narrative & Benefits -->
+<div class="section-padding">
+  <div class="container">
+    <div class="row g-5">
+      
+      <!-- Main Content -->
+      <div class="col-lg-8">
+        <h3 class="fw-bold mb-3">Solution Overview</h3>
+        <p class="lead text-dark mb-4" style="line-height: 1.7;"><%= solution.fullDesc %></p>
+
+        <!-- Measurable Clinical Benchmarks -->
+        <h4 class="fw-bold mb-3 mt-5">Documented Performance Metrics</h4>
+        <div class="row g-3 mb-5">
+          <% (solution.benefits || []).forEach(b => { %>
+            <div class="col-md-4">
+              <div class="p-4 bg-light rounded-4 border h-100">
+                <div class="fw-bold fs-2 text-primary mb-1"><%= b.stat %></div>
+                <div class="fw-bold text-dark mb-1"><%= b.title %></div>
+                <div class="small text-muted"><%= b.description %></div>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+
+        <!-- Workflow Lifecycle Steps -->
+        <div id="workflow" class="pt-4">
+          <h3 class="fw-bold mb-2">End-to-End Operational Lifecycle</h3>
+          <p class="text-muted mb-4">How specimens flow seamlessly through this module from intake to verified release.</p>
+
+          <div class="d-flex flex-column gap-3 mb-5">
+            <% (solution.workflowSteps || []).forEach(step => { %>
+              <div class="p-4 bg-white rounded-4 border d-flex gap-3 align-items-start shadow-sm">
+                <div class="brand-icon-box flex-shrink-0" style="width: 44px; height: 44px; font-size: 1.1rem;">
+                  <%= step.stepNumber %>
+                </div>
+                <div>
+                  <h5 class="fw-bold mb-1"><%= step.title %></h5>
+                  <p class="text-muted mb-0 small" style="font-size: 0.95rem;"><%= step.detail %></p>
+                </div>
+              </div>
+            <% }) %>
+          </div>
+        </div>
+
+        <!-- Comprehensive Features Checklist -->
+        <h4 class="fw-bold mb-3">Architectural Capabilities</h4>
+        <div class="p-4 bg-light rounded-4 border mb-5">
+          <div class="row g-3">
+            <% (solution.keyFeatures || []).forEach(feat => { %>
+              <div class="col-md-6">
+                <div class="d-flex align-items-start gap-2">
+                  <i class="bi bi-check-circle-fill text-teal mt-1" style="color: var(--secondary);"></i>
+                  <span class="small fw-semibold text-dark"><%= feat %></span>
+                </div>
+              </div>
+            <% }) %>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Consultation Request Box -->
+      <div class="col-lg-4">
+        <div class="sticky-top" style="top: 90px;">
+          <div class="p-4 bg-white rounded-4 border shadow-sm mb-4">
+            <span class="badge bg-secondary text-white mb-2 px-2 py-1">CONSULTATION</span>
+            <h5 class="fw-bold mb-2">Schedule <%= solution.title %> Walkthrough</h5>
+            <p class="small text-muted mb-3">Our clinical specialists will review your current instrumentation and showcase direct bidirectional interfaces.</p>
+
+            <form action="/api/demo" method="POST">
+              <div class="mb-2">
+                <label class="form-label small">Full Name</label>
+                <input type="text" class="form-control form-control-sm" name="fullName" required placeholder="Dr. Robert Hayes">
+              </div>
+              <div class="mb-2">
+                <label class="form-label small">Institutional Email</label>
+                <input type="email" class="form-control form-control-sm" name="email" required placeholder="rhayes@diagnosticlab.com">
+              </div>
+              <div class="mb-2">
+                <label class="form-label small">Organization</label>
+                <input type="text" class="form-control form-control-sm" name="organization" required placeholder="Quest Labs / St. Jude">
+              </div>
+              <div class="mb-3">
+                <label class="form-label small">Laboratory Type</label>
+                <select class="form-select form-select-sm" name="labType">
+                  <option value="Commercial Reference Lab">Commercial Reference Lab</option>
+                  <option value="Hospital & Health System">Hospital &amp; Health System</option>
+                  <option value="Molecular & Pathology Lab">Molecular &amp; Pathology Lab</option>
+                  <option value="Genomics & NGS Core">Genomics &amp; NGS Core</option>
+                </select>
+              </div>
+              <input type="hidden" name="modulesOfInterest" value="<%= solution.title %>">
+              <button type="submit" class="btn btn-primary-omni w-100 justify-content-center">
+                <i class="bi bi-send-check me-1"></i> Request Live Demo
+              </button>
+            </form>
+          </div>
+
+          <!-- Other Solutions -->
+          <div class="p-4 bg-light rounded-4 border">
+            <h6 class="fw-bold mb-3">Explore Other Modules</h6>
+            <div class="d-flex flex-column gap-2">
+              <% (relatedSolutions || []).forEach(rel => { %>
+                <a href="/solutions/<%= rel.slug %>" class="p-2 bg-white rounded border d-flex justify-content-between align-items-center text-dark text-decoration-none">
+                  <span class="small fw-semibold"><%= rel.title %></span>
+                  <i class="bi bi-chevron-right text-muted small"></i>
+                </a>
+              <% }) %>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

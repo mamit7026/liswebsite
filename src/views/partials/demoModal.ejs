@@ -1,0 +1,126 @@
+<!-- Schedule Live Demo Modal -->
+<div class="modal fade" id="demoModal" tabindex="-1" aria-labelledby="demoModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content" style="border-radius: var(--radius-lg); border: 1px solid var(--border-color); overflow: hidden;">
+      
+      <!-- Modal Header -->
+      <div class="modal-header" style="background: linear-gradient(135deg, #0F6CBD 0%, #0F9D8A 100%); color: #FFFFFF; padding: 22px 28px;">
+        <div>
+          <span class="badge bg-white text-dark mb-1 px-2 py-1 fw-bold" style="font-size: 0.72rem;">ONE-ON-ONE ARCHITECTURE SESSION</span>
+          <h4 class="modal-title fw-bold text-white mb-0" id="demoModalLabel">Schedule Your Personalized OmniLIS Demo</h4>
+        </div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body p-4 p-md-5">
+        <p class="text-muted mb-4" style="font-size: 0.95rem;">
+          Join our senior clinical laboratory informatics architects for a tailored 45-minute live walkthrough based on your laboratory's test volume, instrumentation, and EHR interfaces.
+        </p>
+
+        <form action="/api/demo" method="POST" id="modalDemoForm">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label" for="modalFullName">Full Name <span class="text-danger">*</span></label>
+              <div class="input-group">
+                <span class="input-group-text bg-white"><i class="bi bi-person"></i></span>
+                <input type="text" class="form-control" id="modalFullName" name="fullName" placeholder="Dr. Sarah Jenkins" required>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label" for="modalEmail">Institutional Email <span class="text-danger">*</span></label>
+              <div class="input-group">
+                <span class="input-group-text bg-white"><i class="bi bi-envelope"></i></span>
+                <input type="email" class="form-control" id="modalEmail" name="email" placeholder="sjenkins@hospital.org" required>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label" for="modalPhone">Direct Phone</label>
+              <div class="input-group">
+                <span class="input-group-text bg-white"><i class="bi bi-telephone"></i></span>
+                <input type="tel" class="form-control" id="modalPhone" name="phone" placeholder="+1 (555) 234-5678">
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label" for="modalOrg">Laboratory / Health System <span class="text-danger">*</span></label>
+              <div class="input-group">
+                <span class="input-group-text bg-white"><i class="bi bi-building"></i></span>
+                <input type="text" class="form-control" id="modalOrg" name="organization" placeholder="MetroHealth Medical Labs" required>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label" for="modalLabType">Primary Laboratory Type <span class="text-danger">*</span></label>
+              <select class="form-select" id="modalLabType" name="labType" required>
+                <option value="Hospital & Health System">Hospital &amp; Health System</option>
+                <option value="Commercial Reference Lab" selected>Commercial Reference Lab</option>
+                <option value="Molecular & Pathology Lab">Molecular &amp; Pathology Lab</option>
+                <option value="Genomics & NGS Core">Genomics &amp; NGS Core</option>
+                <option value="Biobanking & Environmental">Biobanking &amp; Environmental</option>
+                <option value="CRO / Clinical Research">CRO / Clinical Research</option>
+                <option value="Other">Other Diagnostic Facility</option>
+              </select>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label" for="modalVolume">Daily Test Volume</label>
+              <select class="form-select" id="modalVolume" name="dailyTestVolume">
+                <option value="< 500 tests/day">&lt; 500 tests / day</option>
+                <option value="500 - 2,500 tests/day" selected>500 - 2,500 tests / day</option>
+                <option value="2,500 - 10,000 tests/day">2,500 - 10,000 tests / day</option>
+                <option value="10,000+ tests/day">10,000+ tests / day</option>
+              </select>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label mb-2">Modules to Highlight in Demo</label>
+              <div class="d-flex flex-wrap gap-2">
+                <div class="form-check form-check-inline bg-light p-2 px-3 rounded">
+                  <input class="form-check-input" type="checkbox" name="modulesOfInterest" value="Clinical Core LIS" id="modCore" checked>
+                  <label class="form-check-label small fw-semibold" for="modCore">Core Diagnostics</label>
+                </div>
+                <div class="form-check form-check-inline bg-light p-2 px-3 rounded">
+                  <input class="form-check-input" type="checkbox" name="modulesOfInterest" value="Molecular & NGS" id="modMol">
+                  <label class="form-check-label small fw-semibold" for="modMol">Genomics / NGS</label>
+                </div>
+                <div class="form-check form-check-inline bg-light p-2 px-3 rounded">
+                  <input class="form-check-input" type="checkbox" name="modulesOfInterest" value="Pathology Synoptics" id="modPath">
+                  <label class="form-check-label small fw-semibold" for="modPath">Digital Pathology</label>
+                </div>
+                <div class="form-check form-check-inline bg-light p-2 px-3 rounded">
+                  <input class="form-check-input" type="checkbox" name="modulesOfInterest" value="RCM Billing" id="modRCM" checked>
+                  <label class="form-check-label small fw-semibold" for="modRCM">Lab RCM &amp; Billing</label>
+                </div>
+                <div class="form-check form-check-inline bg-light p-2 px-3 rounded">
+                  <input class="form-check-input" type="checkbox" name="modulesOfInterest" value="Instrument Interfacing" id="modHL7">
+                  <label class="form-check-label small fw-semibold" for="modHL7">HL7 / Analyzers</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label" for="modalNotes">Specific Pain Points or Instruments in Use</label>
+              <textarea class="form-control" id="modalNotes" name="notes" rows="2" placeholder="e.g. Current LIS is retiring, need Roche Cobas 8000 and Epic EHR bidirectional interfacing..."></textarea>
+            </div>
+
+            <div class="col-12 mt-4 text-end">
+              <button type="button" class="btn btn-outline-secondary me-2" data-bs-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-primary-omni px-4">
+                <i class="bi bi-check2-circle"></i> Confirm Demo Request
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer bg-light px-4 py-3 justify-content-between">
+        <span class="small text-muted"><i class="bi bi-lock-fill me-1"></i> 256-bit encrypted. HIPAA compliant information handling.</span>
+        <span class="small text-muted fw-semibold">No credit card or commitment required.</span>
+      </div>
+
+    </div>
+  </div>
+</div>

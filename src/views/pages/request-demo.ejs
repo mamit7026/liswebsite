@@ -1,0 +1,206 @@
+<%- include('../partials/head') %>
+<%- include('../partials/navbar') %>
+
+<!-- Dedicated Demo Request Header -->
+<div class="py-5 bg-light border-bottom" style="background-color: var(--bg-light) !important;">
+  <div class="container py-4">
+    <div class="row align-items-center">
+      <div class="col-lg-7">
+        <span class="badge bg-primary text-white mb-2 px-3 py-1">TAILORED ARCHITECTURE WALKTHROUGH</span>
+        <h1 class="fw-bold mb-3 display-5">Schedule a Live Demonstration of OmniLIS</h1>
+        <p class="lead text-muted mb-0">
+          Experience how OmniLIS automates accessioning, instrument bidirectional query, auto-verification, and claim scrubbing for your specific laboratory volume.
+        </p>
+      </div>
+      <div class="col-lg-5 mt-4 mt-lg-0">
+        <div class="p-3 bg-white rounded-3 border d-flex align-items-center gap-3 shadow-sm">
+          <div class="brand-icon-box" style="width: 48px; height: 48px; font-size: 1.3rem;">
+            <i class="bi bi-clock-history"></i>
+          </div>
+          <div>
+            <div class="fw-bold text-dark">45-Minute Focused Session</div>
+            <div class="small text-muted">Led by a Certified Laboratory Informatics Architect</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-padding">
+  <div class="container">
+    <div class="row g-5">
+      
+      <!-- Left Column: Form -->
+      <div class="col-lg-7">
+        <div class="p-4 p-md-5 bg-white rounded-4 border shadow-sm">
+          
+          <% if (typeof query !== 'undefined' && query.status === 'success') { %>
+            <div class="alert alert-success d-flex align-items-center mb-4">
+              <i class="bi bi-check-circle-fill fs-4 me-3"></i>
+              <div>
+                <h5 class="fw-bold mb-1">Demonstration Booked Successfully!</h5>
+                <p class="small mb-0">Our clinical informatics team has received your information. A calendar invitation has been prepared for your review.</p>
+              </div>
+            </div>
+          <% } %>
+
+          <% if (typeof query !== 'undefined' && query.status === 'error') { %>
+            <div class="alert alert-danger d-flex align-items-center mb-4">
+              <i class="bi bi-exclamation-triangle-fill fs-4 me-3"></i>
+              <div>
+                <h5 class="fw-bold mb-1">Submission Incomplete</h5>
+                <p class="small mb-0"><%= query.msg || 'Please verify that all required fields are correctly completed.' %></p>
+              </div>
+            </div>
+          <% } %>
+
+          <h3 class="fw-bold mb-2">Tell Us About Your Laboratory</h3>
+          <p class="small text-muted mb-4">We will customize the live demonstration software environment with your analyzer models and test panels.</p>
+
+          <form action="/api/demo" method="POST" id="pageDemoForm">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label" for="pageFullName">Full Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="pageFullName" name="fullName" required placeholder="Dr. Karen Wright">
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label" for="pageEmail">Institutional Email <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" id="pageEmail" name="email" required placeholder="kwright@diaglabs.com">
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label" for="pagePhone">Direct Phone</label>
+                <input type="tel" class="form-control" id="pagePhone" name="phone" placeholder="+1 (555) 345-6789">
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label" for="pageOrg">Institution / Health Network <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="pageOrg" name="organization" required placeholder="Allied Regional Diagnostics">
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label" for="pageLabType">Primary Laboratory Discipline <span class="text-danger">*</span></label>
+                <select class="form-select" id="pageLabType" name="labType" required>
+                  <option value="Commercial Reference Lab" selected>Commercial Reference Lab</option>
+                  <option value="Hospital & Health System">Hospital &amp; Health System</option>
+                  <option value="Molecular & Pathology Lab">Molecular &amp; Pathology Lab</option>
+                  <option value="Genomics & NGS Core">Genomics &amp; NGS Core</option>
+                  <option value="Biobanking & Environmental">Biobanking &amp; Environmental</option>
+                  <option value="CRO / Clinical Research">CRO / Clinical Research</option>
+                  <option value="Other">Other Diagnostic Facility</option>
+                </select>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label" for="pageVolume">Current Daily Specimen Volume</label>
+                <select class="form-select" id="pageVolume" name="dailyTestVolume">
+                  <option value="< 500 tests/day">&lt; 500 tests / day</option>
+                  <option value="500 - 2,500 tests/day" selected>500 - 2,500 tests / day</option>
+                  <option value="2,500 - 10,000 tests/day">2,500 - 10,000 tests / day</option>
+                  <option value="10,000+ tests/day">10,000+ tests / day</option>
+                </select>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label" for="pageTimeframe">Implementation Horizon</label>
+                <select class="form-select" id="pageTimeframe" name="timeframe">
+                  <option value="Immediate (1-3 months)">Immediate (1 - 3 months)</option>
+                  <option value="3-6 months" selected>3 - 6 months</option>
+                  <option value="6-12 months">6 - 12 months</option>
+                  <option value="Just Researching">Just Researching / Budgeting</option>
+                </select>
+              </div>
+
+              <div class="col-12 mt-3">
+                <label class="form-label fw-bold mb-2">Modules to Demonstrate (Select all that apply):</label>
+                <div class="d-flex flex-wrap gap-2">
+                  <div class="form-check bg-light p-2 px-3 rounded border">
+                    <input class="form-check-input" type="checkbox" name="modulesOfInterest" value="Clinical Core LIS" id="pMod1" checked>
+                    <label class="form-check-label small fw-semibold" for="pMod1">Core Diagnostics LIS</label>
+                  </div>
+                  <div class="form-check bg-light p-2 px-3 rounded border">
+                    <input class="form-check-input" type="checkbox" name="modulesOfInterest" value="Anatomic Pathology" id="pMod2">
+                    <label class="form-check-label small fw-semibold" for="pMod2">Anatomic Pathology</label>
+                  </div>
+                  <div class="form-check bg-light p-2 px-3 rounded border">
+                    <input class="form-check-input" type="checkbox" name="modulesOfInterest" value="Genomics & NGS" id="pMod3">
+                    <label class="form-check-label small fw-semibold" for="pMod3">Genomics &amp; NGS</label>
+                  </div>
+                  <div class="form-check bg-light p-2 px-3 rounded border">
+                    <input class="form-check-input" type="checkbox" name="modulesOfInterest" value="RCM Billing" id="pMod4" checked>
+                    <label class="form-check-label small fw-semibold" for="pMod4">Lab RCM &amp; Billing</label>
+                  </div>
+                  <div class="form-check bg-light p-2 px-3 rounded border">
+                    <input class="form-check-input" type="checkbox" name="modulesOfInterest" value="700+ Instrument Drivers" id="pMod5" checked>
+                    <label class="form-check-label small fw-semibold" for="pMod5">Instrument Interfacing</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 mt-3">
+                <label class="form-label" for="pageNotes">Current Instruments, EHR &amp; Specific Goals</label>
+                <textarea class="form-control" id="pageNotes" name="notes" rows="3" placeholder="Tell us which analyzers (e.g., Roche Cobas, Beckman Coulter, Illumina) and EHR platforms (Epic, Cerner) you operate..."></textarea>
+              </div>
+
+              <div class="col-12 mt-4">
+                <button type="submit" class="btn btn-primary-omni btn-lg w-100 justify-content-center">
+                  <i class="bi bi-calendar2-check-fill me-2"></i> Confirm My Demonstration Booking
+                </button>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+
+      <!-- Right Column: What to Expect & Proof -->
+      <div class="col-lg-5">
+        <h4 class="fw-bold mb-3">What You Will Experience</h4>
+        
+        <div class="d-flex flex-column gap-3 mb-4">
+          <div class="p-3 bg-light rounded-3 border d-flex gap-3 align-items-start">
+            <i class="bi bi-check-circle-fill text-success fs-4 mt-1"></i>
+            <div>
+              <div class="fw-bold text-dark">Direct Interface Simulation</div>
+              <div class="small text-muted">We will simulate bidirectional host queries with your exact analyzer models in real-time.</div>
+            </div>
+          </div>
+
+          <div class="p-3 bg-light rounded-3 border d-flex gap-3 align-items-start">
+            <i class="bi bi-check-circle-fill text-success fs-4 mt-1"></i>
+            <div>
+              <div class="fw-bold text-dark">Auto-Verification Rule Setup</div>
+              <div class="small text-muted">See how normal results are automatically signed off in milliseconds using delta checks.</div>
+            </div>
+          </div>
+
+          <div class="p-3 bg-light rounded-3 border d-flex gap-3 align-items-start">
+            <i class="bi bi-check-circle-fill text-success fs-4 mt-1"></i>
+            <div>
+              <div class="fw-bold text-dark">RCM Denial Prevention Review</div>
+              <div class="small text-muted">Discover how real-time ANSI 270/271 insurance scrubbing protects revenue before accessioning.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-4 bg-white rounded-4 border shadow-sm">
+          <div class="small text-uppercase text-secondary fw-bold mb-2">Enterprise Security Guarantee</div>
+          <div class="small text-muted mb-3">
+            All consultations are conducted under bilateral non-disclosure protections. We respect your laboratory operational privacy and compliance requirements.
+          </div>
+          <div class="d-flex gap-2 flex-wrap">
+            <span class="badge bg-light text-dark border px-2 py-1"><i class="bi bi-lock-fill text-primary me-1"></i>SOC 2 Type II</span>
+            <span class="badge bg-light text-dark border px-2 py-1"><i class="bi bi-shield-check text-success me-1"></i>HIPAA Compliant</span>
+            <span class="badge bg-light text-dark border px-2 py-1"><i class="bi bi-patch-check text-info me-1"></i>CLIA 88 Ready</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

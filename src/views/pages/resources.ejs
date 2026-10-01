@@ -1,0 +1,129 @@
+<%- include('../partials/head') %>
+<%- include('../partials/navbar') %>
+
+<!-- Header -->
+<div class="py-5 bg-light border-bottom" style="background-color: var(--bg-light) !important;">
+  <div class="container py-4">
+    <span class="badge bg-primary text-white mb-2 px-3 py-1">KNOWLEDGE &amp; RESEARCH</span>
+    <h1 class="fw-bold mb-3 display-5">Clinical Informatics Resources</h1>
+    <p class="lead text-muted mb-0" style="max-width: 720px;">
+      Explore technical whitepapers, peer-reviewed lab benchmarks, regulatory compliance guides, and real-world transformation stories.
+    </p>
+  </div>
+</div>
+
+<div class="section-padding">
+  <div class="container">
+    
+    <!-- Case Studies Section -->
+    <div class="mb-5 pb-4">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+          <span class="section-kicker">Client Outcomes</span>
+          <h3 class="fw-bold mb-0">Featured Customer Transformations</h3>
+        </div>
+        <button type="button" class="btn btn-outline-omni" data-bs-toggle="modal" data-bs-target="#demoModal">
+          Request Lab Consultation
+        </button>
+      </div>
+
+      <div class="row g-4">
+        <% if (typeof caseStudies !== 'undefined' && caseStudies && caseStudies.length > 0) { %>
+          <% caseStudies.forEach(cs => { %>
+            <div class="col-lg-4 col-md-6">
+              <div class="p-4 bg-white border rounded-4 shadow-sm h-100 d-flex flex-column">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <span class="badge bg-light text-primary border px-2 py-1"><%= cs.labType %></span>
+                  <span class="fw-bold text-success"><%= cs.stat %></span>
+                </div>
+                <h5 class="fw-bold mb-1"><%= cs.title %></h5>
+                <div class="small text-muted mb-3"><%= cs.subtitle %></div>
+                <p class="small text-muted mb-4"><%= cs.summary %></p>
+
+                <div class="mt-auto p-3 bg-light rounded-3 border">
+                  <p class="fst-italic text-dark small mb-2">&ldquo;<%= cs.quote %>&rdquo;</p>
+                  <div class="fw-bold text-primary small"><%= cs.author %></div>
+                </div>
+              </div>
+            </div>
+          <% }) %>
+        <% } else { %>
+          <div class="col-md-4">
+            <div class="p-4 bg-white border rounded-4 shadow-sm h-100">
+              <span class="badge bg-light text-primary border px-2 py-1 mb-2">Hospital Health System</span>
+              <h5 class="fw-bold mb-1">Turnaround Time Acceleration</h5>
+              <div class="small text-muted mb-3">Core Chemistry &amp; Hematology</div>
+              <p class="small text-muted mb-0">Standardized auto-verification algorithms reduced manual signout time by 44% across 4 regional diagnostic core facilities.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="p-4 bg-white border rounded-4 shadow-sm h-100">
+              <span class="badge bg-light text-teal border px-2 py-1 mb-2" style="color: var(--secondary);">Reference Laboratory</span>
+              <h5 class="fw-bold mb-1">Front-End RCM &amp; Clean Claims</h5>
+              <div class="small text-muted mb-3">Commercial Reference Lab</div>
+              <p class="small text-muted mb-0">Embedded ANSI 270/271 insurance verification elevated clean claim first-pass rates to 96.8%, reducing days in A/R to 24 days.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="p-4 bg-white border rounded-4 shadow-sm h-100">
+              <span class="badge bg-light text-info border px-2 py-1 mb-2">Precision Molecular</span>
+              <h5 class="fw-bold mb-1">NGS Genomic Automation</h5>
+              <div class="small text-muted mb-3">Oncology Diagnostic Core</div>
+              <p class="small text-muted mb-0">Automated FASTQ-to-VCF bioinformatic pipeline orchestration coupled with ACMG variant classification reduced curation by 65%.</p>
+            </div>
+          </div>
+        <% } %>
+      </div>
+    </div>
+
+    <!-- Whitepapers & Compliance Guides -->
+    <div class="pt-5 border-top">
+      <span class="section-kicker">Whitepapers &amp; Architecture Briefs</span>
+      <h3 class="fw-bold mb-4">Informatics Guides &amp; Regulatory Checklists</h3>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="p-4 bg-white border rounded-4 shadow-sm h-100">
+            <div class="badge bg-primary text-white mb-3 px-2 py-1">REGULATORY COMPLIANCE</div>
+            <h5 class="fw-bold mb-2">Automating CAP &amp; CLIA Audit Readiness</h5>
+            <p class="small text-muted mb-3">
+              How electronic cryptographic audit trails, automated SOP read-and-sign tracking, and integrated CAP checklists cut inspection prep time by 75%.
+            </p>
+            <a href="#" class="text-primary fw-semibold small text-decoration-none" data-bs-toggle="modal" data-bs-target="#demoModal">
+              Download PDF Guide (14 Pages) &rarr;
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="p-4 bg-white border rounded-4 shadow-sm h-100">
+            <div class="badge bg-teal text-white mb-3 px-2 py-1" style="background-color: var(--secondary);">GENOMICS ARCHITECTURE</div>
+            <h5 class="fw-bold mb-2">Connecting Illumina Sequencers to Clinical LIS</h5>
+            <p class="small text-muted mb-3">
+              A deep-dive technical blueprint on sample sheet generation, DRAGEN secondary analysis triggers, and automated ACMG variant curation.
+            </p>
+            <a href="#" class="text-secondary fw-semibold small text-decoration-none" data-bs-toggle="modal" data-bs-target="#demoModal" style="color: var(--secondary) !important;">
+              Download Architecture Paper &rarr;
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="p-4 bg-white border rounded-4 shadow-sm h-100">
+            <div class="badge bg-dark text-white mb-3 px-2 py-1">FINANCIAL OPERATIONS</div>
+            <h5 class="fw-bold mb-2">Front-End RCM &amp; Denials Prevention</h5>
+            <p class="small text-muted mb-3">
+              Why embedding real-time ANSI 270/271 insurance eligibility and LCD/NCD medical necessity checks into accessioning yields 96%+ clean claims.
+            </p>
+            <a href="#" class="text-primary fw-semibold small text-decoration-none" data-bs-toggle="modal" data-bs-target="#demoModal">
+              Download Case Benchmark &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

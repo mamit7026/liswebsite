@@ -1,0 +1,148 @@
+<!-- Top Notice Bar -->
+<div class="top-notice-bar d-none d-md-block">
+  <div class="container d-flex justify-content-between align-items-center">
+    <div>
+      <span class="badge bg-white text-dark me-2 py-1 px-2 fw-semibold" style="font-size: 0.72rem;">NEW RELEASE</span>
+      <span>OmniLIS 2026 Engine with Integrated Illumina NovaSeq &amp; DRAGEN Bioinformatic Pipelines</span>
+      <a href="/solutions/genomics-ngs" class="fw-semibold">Explore Genomic Module &rarr;</a>
+    </div>
+    <div class="d-flex align-items-center gap-3">
+      <span><i class="bi bi-telephone-fill me-1"></i> 1-800-666-4547</span>
+      <span>&bull;</span>
+      <a href="/admin" class="text-white text-decoration-none opacity-75 hover-opacity-100" title="Admin Leads & Inquiries Manager"><i class="bi bi-shield-lock-fill me-1"></i>Admin Portal</a>
+    </div>
+  </div>
+</div>
+
+<!-- Main Sticky Navbar -->
+<nav class="navbar navbar-expand-lg navbar-omni sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <div class="brand-icon-box">
+        <i class="bi bi-grid-3x3-gap-fill"></i>
+      </div>
+      <div>
+        <span style="letter-spacing: -0.03em;">Omni<span style="color: var(--secondary);">LIS</span></span>
+        <span class="d-block text-muted text-uppercase" style="font-size: 0.65rem; letter-spacing: 0.18em; line-height: 1;">Informatics System</span>
+      </div>
+    </a>
+
+    <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#omniNavContent" aria-controls="omniNavContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="omniNavContent">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 align-items-lg-center">
+        <!-- Solutions Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle <%= (typeof activeNav !== 'undefined' && activeNav === 'solutions') ? 'active' : '' %>" href="/solutions" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Solutions
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="/solutions/clinical-diagnostics">
+                <i class="bi bi-activity text-primary me-2"></i> Clinical Diagnostics Core LIS
+                <span class="item-desc">Hematology, Chemistry, Urinalysis auto-verification</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="/solutions/molecular-pathology">
+                <i class="bi bi-virus text-teal me-2" style="color: var(--secondary);"></i> Anatomic Pathology &amp; Molecular
+                <span class="item-desc">Cassette tracking, synoptic CAP reporting &amp; WSI</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="/solutions/genomics-ngs">
+                <i class="bi bi-dna text-info me-2"></i> Genomics &amp; NGS Informatics
+                <span class="item-desc">Illumina integration, DRAGEN pipelines &amp; ACMG</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="/solutions/enterprise-rcm">
+                <i class="bi bi-cash-coin text-success me-2"></i> Laboratory RCM &amp; Billing
+                <span class="item-desc">Clean claims scrubbing, eligibility EDI 270/271</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="/solutions/biobanking-lims">
+                <i class="bi bi-snow2 text-primary me-2"></i> Biobanking &amp; Environmental LIMS
+                <span class="item-desc">Cryo-freezer mapping, chain-of-custody, aliquots</span>
+              </a>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item text-primary fw-semibold" href="/solutions">View All Solutions &rarr;</a></li>
+          </ul>
+        </li>
+
+        <!-- Products / Modules -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle <%= (typeof activeNav !== 'undefined' && activeNav === 'products') ? 'active' : '' %>" href="/products" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Platform Modules
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="/products#sample-tracking">
+                <i class="bi bi-upc-scan text-primary me-2"></i> Specimen 360&trade; Tracking
+                <span class="item-desc">2D barcoding, courier GPS &amp; positive patient ID</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="/products#instrument-interfacing">
+                <i class="bi bi-hdd-network text-teal me-2" style="color: var(--secondary);"></i> OmniConnect&trade; HL7/ASTM Hub
+                <span class="item-desc">700+ analyzer drivers, EHR bidirectional interface</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="/products#rules-engine">
+                <i class="bi bi-cpu text-info me-2"></i> AutoVerify&trade; Clinical Rules Engine
+                <span class="item-desc">85%+ automatic release &amp; Westgard QC checks</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="/products#physician-portal">
+                <i class="bi bi-laptop text-primary me-2"></i> OmniPortal&trade; Physician &amp; Patient
+                <span class="item-desc">Web e-requisitions, cumulative charting, alerts</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="/products#quality-compliance">
+                <i class="bi bi-shield-check text-success me-2"></i> ComplianceGuard&trade; Quality Hub
+                <span class="item-desc">CAP/CLIA audit checklists &amp; 21 CFR Part 11</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- Industries -->
+        <li class="nav-item">
+          <a class="nav-link <%= (typeof activeNav !== 'undefined' && activeNav === 'industries') ? 'active' : '' %>" href="/industries">Industries</a>
+        </li>
+
+        <!-- Resources -->
+        <li class="nav-item">
+          <a class="nav-link <%= (typeof activeNav !== 'undefined' && activeNav === 'resources') ? 'active' : '' %>" href="/resources">Resources</a>
+        </li>
+
+        <!-- Company / About -->
+        <li class="nav-item">
+          <a class="nav-link <%= (typeof activeNav !== 'undefined' && activeNav === 'about') ? 'active' : '' %>" href="/about">About Us</a>
+        </li>
+
+        <!-- Contact -->
+        <li class="nav-item">
+          <a class="nav-link <%= (typeof activeNav !== 'undefined' && activeNav === 'contact') ? 'active' : '' %>" href="/contact">Contact</a>
+        </li>
+      </ul>
+
+      <!-- Action CTAs -->
+      <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0">
+        <a href="/contact" class="btn btn-outline-omni d-none d-xl-inline-flex">
+          <i class="bi bi-headset"></i> Lab Support
+        </a>
+        <button type="button" class="btn btn-primary-omni" data-bs-toggle="modal" data-bs-target="#demoModal">
+          <i class="bi bi-calendar-event"></i> Schedule Demo
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

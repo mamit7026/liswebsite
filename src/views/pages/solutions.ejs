@@ -1,0 +1,120 @@
+<%- include('../partials/head') %>
+<%- include('../partials/navbar') %>
+
+<!-- Solutions Page Header -->
+<div class="py-5 bg-light border-bottom" style="background-color: var(--bg-light) !important;">
+  <div class="container py-4">
+    <div class="row align-items-center">
+      <div class="col-lg-8">
+        <span class="badge bg-primary text-white mb-2 px-3 py-1">ENTERPRISE LABORATORY DISCIPLINES</span>
+        <h1 class="fw-bold mb-3 display-5">Tailored Solutions for Every Lab Discipline</h1>
+        <p class="lead text-muted mb-0" style="max-width: 680px;">
+          Whether your facility processes 500 routine chemistry tubes or 50,000 NGS genetic sequences per month, OmniLIS delivers specialized diagnostic modules designed around your regulatory and workflow demands.
+        </p>
+      </div>
+      <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+        <button type="button" class="btn btn-primary-omni btn-lg" data-bs-toggle="modal" data-bs-target="#demoModal">
+          <i class="bi bi-calendar-event me-2"></i> Schedule Demo
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Solutions Catalog Grid -->
+<div class="section-padding">
+  <div class="container">
+    <div class="row g-5">
+      <% if (typeof solutions !== 'undefined' && solutions && solutions.length > 0) { %>
+        <% solutions.forEach((sol, idx) => { %>
+          <div class="col-12">
+            <div class="p-4 p-md-5 bg-white border rounded-4 shadow-sm">
+              <div class="row align-items-center">
+                
+                <div class="col-lg-7 mb-4 mb-lg-0">
+                  <div class="d-flex align-items-center gap-3 mb-3">
+                    <div class="card-icon-wrap m-0" style="width: 50px; height: 50px; font-size: 1.4rem;">
+                      <i class="bi <%= sol.icon || 'bi-capsule' %>"></i>
+                    </div>
+                    <div>
+                      <span class="badge bg-light text-primary border px-2 py-1"><%= sol.category %></span>
+                      <h3 class="fw-bold mb-0 mt-1"><%= sol.title %></h3>
+                    </div>
+                  </div>
+
+                  <div class="fw-semibold text-secondary mb-2" style="color: var(--secondary) !important;">
+                    <i class="bi bi-stars me-1"></i> <%= sol.heroHighlight %>
+                  </div>
+
+                  <p class="text-muted mb-4"><%= sol.fullDesc %></p>
+
+                  <h6 class="fw-bold text-dark mb-2">Key Diagnostic Capabilities:</h6>
+                  <div class="row g-2 mb-4">
+                    <% (sol.keyFeatures || []).forEach(feat => { %>
+                      <div class="col-md-6">
+                        <div class="d-flex align-items-start gap-2 small">
+                          <i class="bi bi-check2-circle text-primary mt-1"></i>
+                          <span><%= feat %></span>
+                        </div>
+                      </div>
+                    <% }) %>
+                  </div>
+
+                  <div class="d-flex flex-wrap gap-2 align-items-center">
+                    <a href="/solutions/<%= sol.slug %>" class="btn btn-primary-omni">
+                      View Complete Architecture &rarr;
+                    </a>
+                    <button type="button" class="btn btn-outline-omni" data-bs-toggle="modal" data-bs-target="#demoModal">
+                      Request Specialist Consultation
+                    </button>
+                  </div>
+                </div>
+
+                <div class="col-lg-5">
+                  <div class="p-4 bg-light rounded-4 border">
+                    <h6 class="fw-bold mb-3 text-uppercase small text-muted" style="letter-spacing: 0.08em;">Measurable Clinical Impact</h6>
+                    
+                    <div class="d-flex flex-column gap-3 mb-4">
+                      <% (sol.benefits || []).forEach(b => { %>
+                        <div class="p-3 bg-white rounded-3 border d-flex justify-content-between align-items-center">
+                          <div>
+                            <div class="fw-bold text-dark"><%= b.title %></div>
+                            <div class="text-muted small"><%= b.description %></div>
+                          </div>
+                          <div class="fw-bold fs-4 text-primary ms-3"><%= b.stat %></div>
+                        </div>
+                      <% }) %>
+                    </div>
+
+                    <div class="small">
+                      <span class="fw-bold text-dark d-block mb-1">Compliance &amp; Standards:</span>
+                      <div class="d-flex flex-wrap gap-1">
+                        <% (sol.complianceStandards || []).forEach(std => { %>
+                          <span class="badge bg-white text-dark border px-2 py-1"><%= std %></span>
+                        <% }) %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <div class="col-12 text-center py-5">
+          <div class="p-5 bg-white border rounded-4 shadow-sm">
+            <i class="bi bi-diagram-3 fs-1 text-primary d-block mb-3"></i>
+            <h4 class="fw-bold mb-2">No Static Seed Data Present</h4>
+            <p class="text-muted mb-4" style="max-width: 500px; margin: 0 auto;">
+              The solutions catalog is currently decoupled from static mock data and ready to accept live laboratory configurations directly in MongoDB.
+            </p>
+            <a href="/request-demo" class="btn btn-primary-omni">Schedule Live Architecture Consultation</a>
+          </div>
+        </div>
+      <% } %>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

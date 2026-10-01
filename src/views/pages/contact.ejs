@@ -1,0 +1,148 @@
+<%- include('../partials/head') %>
+<%- include('../partials/navbar') %>
+
+<!-- Header -->
+<div class="py-5 bg-light border-bottom" style="background-color: var(--bg-light) !important;">
+  <div class="container py-4">
+    <span class="badge bg-primary text-white mb-2 px-3 py-1">CONNECT WITH OUR INFORMATICS TEAM</span>
+    <h1 class="fw-bold mb-3 display-5">Speak with a Laboratory Specialist</h1>
+    <p class="lead text-muted mb-0" style="max-width: 720px;">
+      Whether you are exploring a core LIS replacement, planning an EHR or analyzer migration, or require technical support, our team is ready to assist.
+    </p>
+  </div>
+</div>
+
+<div class="section-padding">
+  <div class="container">
+    <div class="row g-5">
+      
+      <!-- Contact Information & Global Hubs -->
+      <div class="col-lg-5">
+        <h3 class="fw-bold mb-4">Direct Contact Directory</h3>
+
+        <div class="d-flex flex-column gap-3 mb-5">
+          <div class="p-3 bg-white rounded-3 border d-flex gap-3 align-items-center">
+            <div class="brand-icon-box" style="width: 44px; height: 44px; font-size: 1.2rem;">
+              <i class="bi bi-telephone-inbound"></i>
+            </div>
+            <div>
+              <div class="small text-muted">24/7 Clinical Emergency Line</div>
+              <div class="fw-bold text-dark fs-5">+1 (800) 666-4547</div>
+            </div>
+          </div>
+
+          <div class="p-3 bg-white rounded-3 border d-flex gap-3 align-items-center">
+            <div class="brand-icon-box" style="width: 44px; height: 44px; font-size: 1.2rem; background: var(--secondary);">
+              <i class="bi bi-envelope-at"></i>
+            </div>
+            <div>
+              <div class="small text-muted">Enterprise Sales Inquiries</div>
+              <div class="fw-bold text-dark fs-5">sales@omnilis-informatics.com</div>
+            </div>
+          </div>
+
+          <div class="p-3 bg-white rounded-3 border d-flex gap-3 align-items-center">
+            <div class="brand-icon-box" style="width: 44px; height: 44px; font-size: 1.2rem; background: #172033;">
+              <i class="bi bi-shield-check"></i>
+            </div>
+            <div>
+              <div class="small text-muted">HL7 &amp; FHIR Integration Desk</div>
+              <div class="fw-bold text-dark fs-5">integrations@omnilis-informatics.com</div>
+            </div>
+          </div>
+        </div>
+
+        <h5 class="fw-bold mb-3">Global Technology Hubs</h5>
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <div class="p-3 bg-light rounded border">
+              <div class="fw-bold text-primary"><i class="bi bi-geo-alt-fill me-1"></i> Cambridge, MA</div>
+              <div class="small text-muted">Global Headquarters<br>400 Tech Square, 6th Fl</div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="p-3 bg-light rounded border">
+              <div class="fw-bold text-teal" style="color: var(--secondary);"><i class="bi bi-geo-alt-fill me-1"></i> San Diego, CA</div>
+              <div class="small text-muted">Genomics &amp; NGS Lab Center<br>Torrey Pines Biotech Center</div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="p-3 bg-light rounded border">
+              <div class="fw-bold text-primary"><i class="bi bi-geo-alt-fill me-1"></i> London, UK</div>
+              <div class="small text-muted">European Operations<br>100 Bishopsgate, EC2N</div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="p-3 bg-light rounded border">
+              <div class="fw-bold text-teal" style="color: var(--secondary);"><i class="bi bi-geo-alt-fill me-1"></i> Zurich, Switzerland</div>
+              <div class="small text-muted">Bioinformatics R&amp;D<br>Technopark Zurich</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Message Form -->
+      <div class="col-lg-7">
+        <div class="p-4 p-md-5 bg-white rounded-4 border shadow-sm">
+          <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-1 mb-2">ONLINE DISPATCH</span>
+          <h3 class="fw-bold mb-2">Send an Inquiry to Our Specialists</h3>
+          <p class="text-muted small mb-4">Complete the form below and an informatics specialist will review and respond within 4 business hours.</p>
+
+          <form action="/api/contact" method="POST">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label" for="contactName">Your Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="contactName" name="name" required placeholder="Dr. Jennifer Ross">
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label" for="contactEmail">Corporate / Institutional Email <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" id="contactEmail" name="email" required placeholder="jross@healthsystem.org">
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label" for="contactCompany">Laboratory / Hospital Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="contactCompany" name="company" required placeholder="Northwestern Clinical Labs">
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label" for="contactPhone">Phone Number</label>
+                <input type="tel" class="form-control" id="contactPhone" name="phone" placeholder="+1 (555) 789-0123">
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label" for="contactDepartment">Routing Department <span class="text-danger">*</span></label>
+                <select class="form-select" id="contactDepartment" name="department" required>
+                  <option value="Enterprise Sales" selected>Enterprise Sales &amp; Quotes</option>
+                  <option value="Technical Support">Technical &amp; 24/7 Operations Support</option>
+                  <option value="HL7/FHIR Integrations">HL7 / FHIR Analyzer Integrations</option>
+                  <option value="Billing & RCM">Billing &amp; RCM Consultation</option>
+                  <option value="Partnerships">Strategic Instrument Partnerships</option>
+                </select>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label" for="contactSubject">Subject <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="contactSubject" name="subject" required placeholder="LIS Replacement for 5 Core Labs">
+              </div>
+
+              <div class="col-12">
+                <label class="form-label" for="contactMessage">Detailed Message <span class="text-danger">*</span></label>
+                <textarea class="form-control" id="contactMessage" name="message" rows="4" required placeholder="Please outline your test volume, current LIS/EHR platforms, analyzer models, and target go-live schedule..."></textarea>
+              </div>
+
+              <div class="col-12 mt-4">
+                <button type="submit" class="btn btn-primary-omni btn-lg w-100 justify-content-center">
+                  <i class="bi bi-send-fill me-2"></i> Submit Inquiry
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

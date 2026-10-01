@@ -1,0 +1,25 @@
+<%- include('../partials/head') %>
+<%- include('../partials/navbar') %>
+
+<div class="py-5 bg-light" style="min-height: 70vh; display: flex; align-items: center;">
+  <div class="container text-center py-5">
+    <div class="brand-icon-box mx-auto mb-4" style="width: 70px; height: 70px; font-size: 2rem;">
+      <i class="bi bi-question-circle"></i>
+    </div>
+    <h1 class="display-3 fw-bold text-primary mb-2">404</h1>
+    <h3 class="fw-bold mb-3">Diagnostic Record Not Located</h3>
+    <p class="text-muted mb-4" style="max-width: 500px; margin: 0 auto;">
+      <%= typeof message !== 'undefined' ? message : 'The specimen, module, or document you requested cannot be located in the laboratory registry.' %>
+    </p>
+    <div class="d-flex justify-content-center gap-3">
+      <a href="/" class="btn btn-primary-omni">
+        <i class="bi bi-house-door-fill me-1"></i> Return to Homepage
+      </a>
+      <a href="/solutions" class="btn btn-outline-omni">
+        <i class="bi bi-grid me-1"></i> View All Solutions
+      </a>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>
