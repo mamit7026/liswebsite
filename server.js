@@ -31,10 +31,7 @@ fastify.register(require('@fastify/view'), {
   },
   root: path.join(__dirname, 'src', 'views'),
   propertyName: 'view',
-  viewExt: 'ejs',
-  options: {
-    async: true
-  }
+  viewExt: 'ejs'
 });
 
 // Register MVC Routes
