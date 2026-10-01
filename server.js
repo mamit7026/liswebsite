@@ -11,11 +11,17 @@ const fastify = Fastify({
 // Register form body parser
 fastify.register(require('@fastify/formbody'));
 
-// Register static assets directory
+// Register static assets directory under /public/
 fastify.register(require('@fastify/static'), {
   root: path.join(__dirname, 'public'),
   prefix: '/public/',
   maxAge: '1d'
+});
+
+// Favicon handler
+fastify.get('/favicon.ico', (req, reply) => {
+  reply.header('Content-Type', 'image/svg+xml');
+  return reply.send(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0F6CBD"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>`);
 });
 
 // Register EJS view engine

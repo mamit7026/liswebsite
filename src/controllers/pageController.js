@@ -1,24 +1,27 @@
 const Solution = require('../models/Solution');
 const Product = require('../models/Product');
+const { solutionsData, productsData, caseStudiesData } = require('../config/seedData');
 
-// Fetch solutions directly from database (no static fallback)
+// Fetch solutions directly from database with fallback
 const getSolutionsList = async () => {
   try {
-    return await Solution.find().sort({ displayOrder: 1 }).lean() || [];
+    const list = await Solution.find().sort({ displayOrder: 1 }).lean();
+    if (list && list.length > 0) return list;
   } catch (err) {
-    console.error('[PageController] Error fetching solutions:', err.message);
-    return [];
+    console.warn('[PageController] MongoDB query warning:', err.message);
   }
+  return solutionsData;
 };
 
-// Fetch products directly from database (no static fallback)
+// Fetch products directly from database with fallback
 const getProductsList = async () => {
   try {
-    return await Product.find().lean() || [];
+    const list = await Product.find().lean();
+    if (list && list.length > 0) return list;
   } catch (err) {
-    console.error('[PageController] Error fetching products:', err.message);
-    return [];
+    console.warn('[PageController] MongoDB query warning:', err.message);
   }
+  return productsData;
 };
 
 exports.getHomePage = async (req, reply) => {
@@ -30,6 +33,7 @@ exports.getHomePage = async (req, reply) => {
     activeNav: 'home',
     solutions,
     products,
+    caseStudies: caseStudiesData,
     query: req.query || {}
   });
 };
@@ -92,6 +96,7 @@ exports.getResourcesPage = async (req, reply) => {
   return reply.view('pages/resources', {
     pageTitle: 'Informatics Resources, Case Studies & Regulatory Guides | OmniLIS',
     activeNav: 'resources',
+    caseStudies: caseStudiesData,
     query: req.query || {}
   });
 };
