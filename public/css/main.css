@@ -1,5 +1,5 @@
 /* ==========================================================================
-   OmniLIS Informatics - Design System & Modern Stylesheet
+   LISDESK — LIMS Platform Design System & Modern Stylesheet
    Theme: Blue + Teal Clinical Informatics Architecture
    Primary: #0F6CBD | Secondary: #0F9D8A | Background: #F8FAFC
    Text: #172033 | Light Section: #EFF6FF | White: #FFFFFF | CTA: #0F6CBD
@@ -133,6 +133,28 @@ a:hover {
   font-weight: 800;
   font-size: 1.4rem;
   color: var(--text-main);
+  padding: 0;
+}
+
+.brand-logo-img {
+  height: 44px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  display: block;
+  transition: transform var(--transition-fast);
+}
+
+.navbar-brand:hover .brand-logo-img {
+  transform: scale(1.02);
+}
+
+.footer-logo-img {
+  height: 48px;
+  width: auto;
+  max-width: 240px;
+  object-fit: contain;
+  display: block;
 }
 
 .brand-icon-box {
@@ -790,4 +812,37 @@ a:hover {
   .roi-card {
     padding: 30px 20px;
   }
+}
+
+/* ==========================================================================
+   Policy Pages (Terms, Privacy, Data, Refund)
+   ========================================================================== */
+.policy-section h2 {
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--primary-light);
+}
+
+.policy-list {
+  padding-left: 20px;
+  margin-bottom: 0;
+}
+
+.policy-list li {
+  margin-bottom: 10px;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+.policy-list li strong {
+  color: var(--text-main);
+}
+
+/* Breadcrumb styles */
+.breadcrumb-item a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+  text-decoration: underline;
 }

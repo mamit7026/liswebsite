@@ -1,5 +1,5 @@
-/**
- * OmniLIS Informatics - Interactive Client Scripts
+﻿/**
+ * LISDESK - Interactive Client Scripts
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -192,3 +192,4 @@ window.showOmniToast = (message, isSuccess = true) => {
     toast.classList.remove('show');
   }, 4500);
 };
+

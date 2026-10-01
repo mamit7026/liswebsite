@@ -1,5 +1,5 @@
-/**
- * OmniLIS Informatics - Form Validation & AJAX Handler
+﻿/**
+ * LISDESK - Form Validation & AJAX Handler
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -235,3 +235,4 @@ function createAlertBox(form) {
   form.appendChild(div);
   return div;
 }
+

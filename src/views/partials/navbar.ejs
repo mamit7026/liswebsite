@@ -3,35 +3,30 @@
   <div class="container d-flex justify-content-between align-items-center">
     <div>
       <span class="badge bg-white text-dark me-2 py-1 px-2 fw-semibold" style="font-size: 0.72rem;">NEW RELEASE</span>
-      <span>OmniLIS 2026 Engine with Integrated Illumina NovaSeq &amp; DRAGEN Bioinformatic Pipelines</span>
+      <span>LISDESK 2026 Engine — Integrated Illumina NovaSeq &amp; DRAGEN Bioinformatic Pipelines</span>
       <a href="/solutions/genomics-ngs" class="fw-semibold">Explore Genomic Module &rarr;</a>
     </div>
     <div class="d-flex align-items-center gap-3">
-      <span><i class="bi bi-telephone-fill me-1"></i> 1-800-666-4547</span>
+      <span><i class="bi bi-telephone-fill me-1"></i> +91 99075 52631</span>
       <span>&bull;</span>
-      <a href="/admin" class="text-white text-decoration-none opacity-75 hover-opacity-100" title="Admin Leads & Inquiries Manager"><i class="bi bi-shield-lock-fill me-1"></i>Admin Portal</a>
+      <a href="/admin" class="text-white text-decoration-none opacity-75" title="Admin Leads &amp; Inquiries Manager"><i class="bi bi-shield-lock-fill me-1"></i>Admin Portal</a>
     </div>
   </div>
 </div>
 
 <!-- Main Sticky Navbar -->
-<nav class="navbar navbar-expand-lg navbar-omni sticky-top">
+<nav class="navbar navbar-expand-lg navbar-omni sticky-top" id="mainNavbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
-      <div class="brand-icon-box">
-        <i class="bi bi-grid-3x3-gap-fill"></i>
-      </div>
-      <div>
-        <span style="letter-spacing: -0.03em;">Omni<span style="color: var(--secondary);">LIS</span></span>
-        <span class="d-block text-muted text-uppercase" style="font-size: 0.65rem; letter-spacing: 0.18em; line-height: 1;">Informatics System</span>
-      </div>
+    <a class="navbar-brand py-1" href="/" aria-label="LISDESK Home">
+      <!-- LISDESK Official Logo from public/image/logo -->
+      <img src="/public/image/logo/lisdesk-digital-lab-logo.png" alt="LISDESK Laboratory Information System" class="brand-logo-img" height="42" onerror="this.onerror=null; this.src='/public/image/logo/LISDesk Digital Lab Logo.png';">
     </a>
 
-    <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#omniNavContent" aria-controls="omniNavContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#lisDeskNavContent" aria-controls="lisDeskNavContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="omniNavContent">
+    <div class="collapse navbar-collapse" id="lisDeskNavContent">
       <ul class="navbar-nav mx-auto mb-2 mb-lg-0 align-items-lg-center">
         <!-- Solutions Dropdown -->
         <li class="nav-item dropdown">
@@ -47,7 +42,7 @@
             </li>
             <li>
               <a class="dropdown-item" href="/solutions/molecular-pathology">
-                <i class="bi bi-virus text-teal me-2" style="color: var(--secondary);"></i> Anatomic Pathology &amp; Molecular
+                <i class="bi bi-virus me-2" style="color: var(--secondary);"></i> Anatomic Pathology &amp; Molecular
                 <span class="item-desc">Cassette tracking, synoptic CAP reporting &amp; WSI</span>
               </a>
             </li>
@@ -82,31 +77,31 @@
           <ul class="dropdown-menu">
             <li>
               <a class="dropdown-item" href="/products#sample-tracking">
-                <i class="bi bi-upc-scan text-primary me-2"></i> Specimen 360&trade; Tracking
+                <i class="bi bi-upc-scan text-primary me-2"></i> Specimen 360&#8482; Tracking
                 <span class="item-desc">2D barcoding, courier GPS &amp; positive patient ID</span>
               </a>
             </li>
             <li>
               <a class="dropdown-item" href="/products#instrument-interfacing">
-                <i class="bi bi-hdd-network text-teal me-2" style="color: var(--secondary);"></i> OmniConnect&trade; HL7/ASTM Hub
+                <i class="bi bi-hdd-network me-2" style="color: var(--secondary);"></i> DeskConnect&#8482; HL7/ASTM Hub
                 <span class="item-desc">700+ analyzer drivers, EHR bidirectional interface</span>
               </a>
             </li>
             <li>
               <a class="dropdown-item" href="/products#rules-engine">
-                <i class="bi bi-cpu text-info me-2"></i> AutoVerify&trade; Clinical Rules Engine
+                <i class="bi bi-cpu text-info me-2"></i> AutoVerify&#8482; Clinical Rules Engine
                 <span class="item-desc">85%+ automatic release &amp; Westgard QC checks</span>
               </a>
             </li>
             <li>
               <a class="dropdown-item" href="/products#physician-portal">
-                <i class="bi bi-laptop text-primary me-2"></i> OmniPortal&trade; Physician &amp; Patient
+                <i class="bi bi-laptop text-primary me-2"></i> DeskPortal&#8482; Physician &amp; Patient
                 <span class="item-desc">Web e-requisitions, cumulative charting, alerts</span>
               </a>
             </li>
             <li>
               <a class="dropdown-item" href="/products#quality-compliance">
-                <i class="bi bi-shield-check text-success me-2"></i> ComplianceGuard&trade; Quality Hub
+                <i class="bi bi-shield-check text-success me-2"></i> ComplianceGuard&#8482; Quality Hub
                 <span class="item-desc">CAP/CLIA audit checklists &amp; 21 CFR Part 11</span>
               </a>
             </li>
@@ -123,7 +118,7 @@
           <a class="nav-link <%= (typeof activeNav !== 'undefined' && activeNav === 'resources') ? 'active' : '' %>" href="/resources">Resources</a>
         </li>
 
-        <!-- Company / About -->
+        <!-- About -->
         <li class="nav-item">
           <a class="nav-link <%= (typeof activeNav !== 'undefined' && activeNav === 'about') ? 'active' : '' %>" href="/about">About Us</a>
         </li>

@@ -11,7 +11,7 @@ async function apiRoutes(fastify, options) {
     return {
       status: 'operational',
       timestamp: new Date().toISOString(),
-      service: 'OmniLIS Informatics Engine',
+      service: 'LISDESK LIMS Engine',
       version: '2.4.0'
     };
   });

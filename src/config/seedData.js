@@ -1,4 +1,4 @@
-const solutionsData = [
+﻿const solutionsData = [
   {
     slug: 'clinical-diagnostics',
     title: 'Clinical Diagnostics & Core Lab LIS',
@@ -6,7 +6,7 @@ const solutionsData = [
     category: 'Clinical Systems',
     heroHighlight: 'Processes 40M+ patient samples annually with 99.99% uptime',
     shortDesc: 'Unify hematology, chemistry, microbiology, urinalysis, and immunology under an intelligent, bidirectional automated workflow engine.',
-    fullDesc: 'OmniLIS Clinical Diagnostics Suite is built to eliminate manual transcription, accelerate turnaround times (TAT), and ensure zero sample misidentification. With direct bi-directional interfaces to leading analyzer manufacturers (Roche, Abbott, Siemens, Beckman Coulter) and seamless EHR integration (Epic, Cerner, MEDITECH), your laboratory can scale without growing headcount.',
+    fullDesc: 'LISDESK Clinical Diagnostics Suite is built to eliminate manual transcription, accelerate turnaround times (TAT), and ensure zero sample misidentification. With direct bi-directional interfaces to leading analyzer manufacturers (Roche, Abbott, Siemens, Beckman Coulter) and seamless EHR integration (Epic, Cerner, MEDITECH), your laboratory can scale without growing headcount.',
     icon: 'bi-activity',
     badgeText: 'High-Throughput Core Lab',
     keyFeatures: [
@@ -99,7 +99,7 @@ const solutionsData = [
     category: 'Revenue & Operations',
     heroHighlight: 'First-pass clean claims rate exceeding 96.8%',
     shortDesc: 'Unified front-end demographic verification, real-time eligibility checks, automated LCD/NCD medical necessity validation, and automated claim submission.',
-    fullDesc: 'Most laboratory revenue leaks happen before the specimen even reaches the testing bench. Inspired by LigoLab’s comprehensive LIS & RCM Operating System, our platform integrates billing directly with the analytical accessioning layer. Every order is checked in real-time for insurance eligibility, prior authorization requirements, and CPT / ICD-10 coding compliance.',
+    fullDesc: 'Most laboratory revenue leaks happen before the specimen even reaches the testing bench. Inspired by LigoLabâ€™s comprehensive LIS & RCM Operating System, our platform integrates billing directly with the analytical accessioning layer. Every order is checked in real-time for insurance eligibility, prior authorization requirements, and CPT / ICD-10 coding compliance.',
     icon: 'bi-cash-coin',
     badgeText: 'Built-in Lab Billing',
     keyFeatures: [
@@ -128,7 +128,7 @@ const solutionsData = [
     title: 'Biobanking & Environmental LIMS',
     tagline: 'Full life-cycle sample custody, cryo-storage management, and research compliance',
     category: 'Research & Life Sciences',
-    heroHighlight: 'Hierarchical freezer mapping across -80°C freezers and liquid nitrogen tanks',
+    heroHighlight: 'Hierarchical freezer mapping across -80Â°C freezers and liquid nitrogen tanks',
     shortDesc: 'Track biospecimens, aliquots, environmental samples, and stability studies with full chain-of-custody, consent management, and audit tracking.',
     fullDesc: 'Designed for academic medical centers, pharmaceutical biorepositories, and environmental testing labs. Modeled after Autoscribe Informatics Matrix Gemini flexible architecture, this module provides granular visual 2D/3D storage mapping, freeze-thaw count tracking, participant consent protocols, and automated temperature logger integration.',
     icon: 'bi-snow2',
@@ -159,7 +159,7 @@ const solutionsData = [
 const productsData = [
   {
     slug: 'sample-tracking',
-    name: 'Specimen 360™ Tracking & Barcoding',
+    name: 'Specimen 360â„¢ Tracking & Barcoding',
     category: 'Specimen Lifecycle',
     badge: 'Zero-Error Tracking',
     tagline: 'Complete chain-of-custody from phlebotomy draw to final archival',
@@ -181,7 +181,7 @@ const productsData = [
   },
   {
     slug: 'instrument-interfacing',
-    name: 'OmniConnect™ Analyzer & HL7 Hub',
+    name: 'OmniConnectâ„¢ Analyzer & HL7 Hub',
     category: 'Interoperability',
     badge: 'Universal Driver Library',
     tagline: 'Plug-and-play bi-directional interfacing with 700+ laboratory instruments',
@@ -203,7 +203,7 @@ const productsData = [
   },
   {
     slug: 'rules-engine',
-    name: 'AutoVerify™ Clinical Rules Engine',
+    name: 'AutoVerifyâ„¢ Clinical Rules Engine',
     category: 'Automation & AI',
     badge: '85%+ Auto-Release',
     tagline: 'Customizable algorithmic decision support for instantaneous result sign-off',
@@ -225,7 +225,7 @@ const productsData = [
   },
   {
     slug: 'physician-portal',
-    name: 'OmniPortal™ Clinical & Patient Access',
+    name: 'OmniPortalâ„¢ Clinical & Patient Access',
     category: 'Client Services',
     badge: 'Mobile & Web Ready',
     tagline: 'Frictionless test ordering, e-requisitions, and real-time result delivery',
@@ -247,7 +247,7 @@ const productsData = [
   },
   {
     slug: 'quality-compliance',
-    name: 'ComplianceGuard™ Quality & Audit Hub',
+    name: 'ComplianceGuardâ„¢ Quality & Audit Hub',
     category: 'Regulatory',
     badge: 'Inspection-Ready Always',
     tagline: 'Automated CAP, CLIA, ISO 15189, and FDA 21 CFR Part 11 compliance management',
@@ -274,10 +274,10 @@ const caseStudiesData = [
     title: 'MetroHealth Regional Medical Center',
     subtitle: 'Consolidating 4 Hospital Labs into a Unified Core Laboratory',
     stat: '45% TAT Reduction',
-    summary: 'How MetroHealth replaced three legacy LIS systems with OmniLIS, achieving 88% auto-verification and saving $1.8M annually in operational costs.',
+    summary: 'How MetroHealth replaced three legacy LIS systems with LISDESK, achieving 88% auto-verification and saving $1.8M annually in operational costs.',
     labType: 'Multi-hospital Health System',
     testsPerDay: '18,500 tests/day',
-    quote: 'OmniLIS transformed our turnaround times from day one. Our critical value paging is now down to seconds, directly saving patient lives in our ICUs.',
+    quote: 'LISDESK transformed our turnaround times from day one. Our critical value paging is now down to seconds, directly saving patient lives in our ICUs.',
     author: 'Dr. Marcus Vance, MD, Medical Director of Pathology'
   },
   {
@@ -307,3 +307,4 @@ module.exports = {
   productsData,
   caseStudiesData
 };
+

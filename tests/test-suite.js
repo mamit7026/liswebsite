@@ -1,4 +1,4 @@
-const http = require('http');
+﻿const http = require('http');
 const mongoose = require('mongoose');
 
 const BASE_URL = 'http://127.0.0.1:3500';
@@ -33,7 +33,7 @@ const request = (path, options = {}, postData = null) => {
 
 async function runTestSuite() {
   console.log('================================================================');
-  console.log('   OmniLIS Platform - Comprehensive Automated Test Suite');
+  console.log('   LISDESK Platform - Comprehensive Automated Test Suite');
   console.log('================================================================\n');
 
   let passed = 0;
@@ -70,7 +70,7 @@ async function runTestSuite() {
     // 2. Web Pages HTTP 200 Verification
     console.log('\n--- 2. Testing All Web Page Routes ---');
     const pages = [
-      { path: '/', title: 'Home Page', check: 'OmniLIS' },
+      { path: '/', title: 'Home Page', check: 'LISDESK' },
       { path: '/solutions', title: 'Solutions Page', check: 'Tailored Solutions' },
       { path: '/products', title: 'Products Page', check: 'Enterprise Technology Modules' },
       { path: '/industries', title: 'Industries Page', check: 'Healthcare Ecosystem' },
@@ -184,3 +184,4 @@ async function runTestSuite() {
 }
 
 runTestSuite();
+

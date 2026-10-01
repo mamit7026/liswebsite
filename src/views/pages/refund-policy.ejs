@@ -1,0 +1,145 @@
+<%- include('../partials/head') %>
+<%- include('../partials/navbar') %>
+
+<!-- Page Header -->
+<div class="py-5 border-bottom" style="background: linear-gradient(135deg, var(--bg-light) 0%, #FFFFFF 100%);">
+  <div class="container py-3">
+    <nav aria-label="breadcrumb" class="mb-3">
+      <ol class="breadcrumb small">
+        <li class="breadcrumb-item"><a href="/" class="text-primary">Home</a></li>
+        <li class="breadcrumb-item active text-muted">Refund &amp; Cancellation Policy</li>
+      </ol>
+    </nav>
+    <div class="d-flex align-items-center gap-3 mb-2">
+      <div class="brand-icon-box" style="width:44px;height:44px;font-size:1.3rem;"><i class="bi bi-arrow-counterclockwise"></i></div>
+      <h1 class="fw-bold mb-0 fs-2">Refund &amp; Cancellation Policy</h1>
+    </div>
+    <p class="text-muted mb-0 small">Last updated: <strong>October 1, 2026</strong> &bull; Applies to all subscription and service plans</p>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="section-padding" style="background:#FFFFFF;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-9">
+
+        <div class="alert border-start border-4 border-warning bg-warning-subtle mb-5 py-3" role="alert">
+          <i class="bi bi-exclamation-triangle-fill text-warning me-2"></i>
+          LISDESK provides enterprise software services. Due to the nature of clinical laboratory systems, refunds are governed by the terms of your specific Service Level Agreement (SLA). The general policy below applies unless your SLA specifies otherwise.
+        </div>
+
+        <div class="policy-section mb-5">
+          <h2 class="fw-bold fs-4 mb-3" style="color:var(--primary);">1. Subscription Plans</h2>
+          <p>LISDESK offers the following billing structures:</p>
+          <ul class="policy-list">
+            <li><strong>Annual Subscription:</strong> Billed annually, upfront</li>
+            <li><strong>Monthly Subscription:</strong> Billed month-to-month</li>
+            <li><strong>One-Time Implementation:</strong> For on-premise deployment setup, training, and go-live support</li>
+            <li><strong>Per-Module Add-Ons:</strong> NGS pipeline, digital pathology WSI, biobanking modules</li>
+          </ul>
+        </div>
+
+        <div class="policy-section mb-5">
+          <h2 class="fw-bold fs-4 mb-3" style="color:var(--primary);">2. Free Trial Period</h2>
+          <p>All new clients receive a <strong>14-day free trial</strong> with full platform access. No payment information is required during the trial. At the end of the trial, you may choose a subscription plan or your account will automatically suspend (no charge).</p>
+        </div>
+
+        <div class="policy-section mb-5">
+          <h2 class="fw-bold fs-4 mb-3" style="color:var(--primary);">3. Cancellation Policy</h2>
+          <h6 class="fw-semibold mb-2">Monthly Plans</h6>
+          <ul class="policy-list mb-4">
+            <li>You may cancel at any time before your next billing cycle</li>
+            <li>Access continues until the end of the paid period</li>
+            <li>No partial refund is issued for unused days within a billing month</li>
+          </ul>
+          <h6 class="fw-semibold mb-2">Annual Plans</h6>
+          <ul class="policy-list">
+            <li>Cancellation requests must be submitted in writing at least <strong>30 days before</strong> the renewal date</li>
+            <li>Early termination within the contract year is subject to the terms of your SLA</li>
+            <li>If no SLA exists, a <strong>pro-rated refund</strong> may be issued for unused complete months (minimum 3 months used before eligibility)</li>
+          </ul>
+        </div>
+
+        <div class="policy-section mb-5">
+          <h2 class="fw-bold fs-4 mb-3" style="color:var(--primary);">4. Refund Eligibility</h2>
+          <div class="table-responsive">
+            <table class="table table-bordered table-sm">
+              <thead class="table-light">
+                <tr>
+                  <th>Scenario</th>
+                  <th>Refund Eligibility</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Service downtime exceeding SLA uptime guarantee (&gt;99.5%)</td>
+                  <td><span class="badge bg-success">Service credit applied</span></td>
+                </tr>
+                <tr>
+                  <td>Billing error / duplicate charge</td>
+                  <td><span class="badge bg-success">Full refund within 7 business days</span></td>
+                </tr>
+                <tr>
+                  <td>Cancellation within 14-day trial</td>
+                  <td><span class="badge bg-success">No charge — free trial</span></td>
+                </tr>
+                <tr>
+                  <td>Annual plan early cancellation (months 1–3)</td>
+                  <td><span class="badge bg-danger">No refund</span></td>
+                </tr>
+                <tr>
+                  <td>Annual plan early cancellation (after month 3)</td>
+                  <td><span class="badge bg-warning text-dark">Pro-rated refund for unused complete months</span></td>
+                </tr>
+                <tr>
+                  <td>Implementation / setup fees</td>
+                  <td><span class="badge bg-danger">Non-refundable</span></td>
+                </tr>
+                <tr>
+                  <td>Training sessions (used)</td>
+                  <td><span class="badge bg-danger">Non-refundable</span></td>
+                </tr>
+                <tr>
+                  <td>Training sessions (unused, cancelled 48h+ in advance)</td>
+                  <td><span class="badge bg-success">Credit toward future sessions</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="policy-section mb-5">
+          <h2 class="fw-bold fs-4 mb-3" style="color:var(--primary);">5. How to Request a Refund</h2>
+          <p>To request a refund or cancellation:</p>
+          <ol class="policy-list">
+            <li>Email <a href="mailto:billing@lisdesk.com" class="text-primary">billing@lisdesk.com</a> with subject line: <strong>"Refund Request — [Your Organization Name]"</strong></li>
+            <li>Include your account ID, invoice number, and reason for refund</li>
+            <li>Our billing team will acknowledge your request within <strong>2 business days</strong></li>
+            <li>Eligible refunds are processed within <strong>7–10 business days</strong> to the original payment method</li>
+          </ol>
+          <p>You may also call us directly at <strong>+91 99075 52631</strong> during business hours (Mon–Sat, 9:00 AM – 6:00 PM IST).</p>
+        </div>
+
+        <div class="policy-section mb-5">
+          <h2 class="fw-bold fs-4 mb-3" style="color:var(--primary);">6. Data After Cancellation</h2>
+          <p>Upon cancellation, your data is retained for <strong>30 days</strong> in read-only mode to allow you to export all clinical records. After 30 days, data is securely deleted per our Data Policy. You may request an export at any time during this window.</p>
+        </div>
+
+        <div class="policy-section mb-5">
+          <h2 class="fw-bold fs-4 mb-3" style="color:var(--primary);">7. Contact for Billing</h2>
+          <div class="p-4 bg-light rounded-4 border">
+            <p class="mb-2 fw-semibold text-dark">LISDESK — Billing &amp; Finance Team</p>
+            <p class="mb-1 small"><i class="bi bi-geo-alt text-primary me-2"></i>Karak, Kalyanpur, Nandakumar, West Bengal, India</p>
+            <p class="mb-1 small"><i class="bi bi-telephone text-primary me-2"></i>+91 99075 52631 &bull; Alt: +91 89272 76802</p>
+            <p class="mb-1 small"><i class="bi bi-clock text-primary me-2"></i>Mon–Sat: 9:00 AM – 6:00 PM IST</p>
+            <p class="mb-0 small"><i class="bi bi-envelope text-primary me-2"></i><a href="mailto:billing@lisdesk.com">billing@lisdesk.com</a></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

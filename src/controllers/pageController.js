@@ -29,7 +29,7 @@ exports.getHomePage = async (req, reply) => {
   const products = await getProductsList();
 
   return reply.view('pages/index', {
-    pageTitle: 'OmniLIS Informatics | Next-Gen Laboratory Information System & Precision Diagnostics',
+    pageTitle: 'LISDESK | Next-Gen Laboratory Information Management System & Precision Diagnostics',
     activeNav: 'home',
     solutions,
     products,
@@ -42,7 +42,7 @@ exports.getSolutionsPage = async (req, reply) => {
   const solutions = await getSolutionsList();
   
   return reply.view('pages/solutions', {
-    pageTitle: 'Laboratory Solutions & Clinical Disciplines | OmniLIS Informatics',
+    pageTitle: 'LIMS Solutions & Clinical Disciplines | LISDESK',
     activeNav: 'solutions',
     solutions,
     query: req.query || {}
@@ -56,7 +56,7 @@ exports.getSolutionDetailPage = async (req, reply) => {
 
   if (!solution) {
     return reply.status(404).view('pages/404', {
-      pageTitle: 'Solution Not Found | OmniLIS Informatics',
+      pageTitle: 'Solution Not Found | LISDESK',
       activeNav: '',
       message: `The laboratory solution "${slug}" was not found.`
     });
@@ -65,7 +65,7 @@ exports.getSolutionDetailPage = async (req, reply) => {
   const relatedSolutions = solutions.filter(s => s.slug !== slug).slice(0, 3);
 
   return reply.view('pages/solution-detail', {
-    pageTitle: `${solution.title} | OmniLIS Informatics`,
+    pageTitle: `${solution.title} | LISDESK`,
     activeNav: 'solutions',
     solution,
     relatedSolutions,
@@ -77,7 +77,7 @@ exports.getProductsPage = async (req, reply) => {
   const products = await getProductsList();
 
   return reply.view('pages/products', {
-    pageTitle: 'Enterprise LIS Modules & Technology Hub | OmniLIS Informatics',
+    pageTitle: 'Enterprise LIMS Modules & Technology Hub | LISDESK',
     activeNav: 'products',
     products,
     query: req.query || {}
@@ -86,7 +86,7 @@ exports.getProductsPage = async (req, reply) => {
 
 exports.getIndustriesPage = async (req, reply) => {
   return reply.view('pages/industries', {
-    pageTitle: 'Industries & Healthcare Sectors We Serve | OmniLIS Informatics',
+    pageTitle: 'Industries & Healthcare Sectors We Serve | LISDESK',
     activeNav: 'industries',
     query: req.query || {}
   });
@@ -94,7 +94,7 @@ exports.getIndustriesPage = async (req, reply) => {
 
 exports.getResourcesPage = async (req, reply) => {
   return reply.view('pages/resources', {
-    pageTitle: 'Informatics Resources, Case Studies & Regulatory Guides | OmniLIS',
+    pageTitle: 'LIMS Resources, Case Studies & Regulatory Guides | LISDESK',
     activeNav: 'resources',
     caseStudies: caseStudiesData,
     query: req.query || {}
@@ -103,7 +103,7 @@ exports.getResourcesPage = async (req, reply) => {
 
 exports.getAboutPage = async (req, reply) => {
   return reply.view('pages/about', {
-    pageTitle: 'About OmniLIS Informatics | Precision Diagnostics Operating System',
+    pageTitle: 'About LISDESK | Precision Laboratory Information Management System',
     activeNav: 'about',
     query: req.query || {}
   });
@@ -111,7 +111,7 @@ exports.getAboutPage = async (req, reply) => {
 
 exports.getContactPage = async (req, reply) => {
   return reply.view('pages/contact', {
-    pageTitle: 'Contact Lab Specialists & Enterprise Support | OmniLIS Informatics',
+    pageTitle: 'Contact Lab Specialists & Enterprise Support | LISDESK',
     activeNav: 'contact',
     query: req.query || {}
   });
@@ -121,9 +121,41 @@ exports.getRequestDemoPage = async (req, reply) => {
   const solutions = await getSolutionsList();
   
   return reply.view('pages/request-demo', {
-    pageTitle: 'Request a Live Consultation & Tailored Demo | OmniLIS Informatics',
+    pageTitle: 'Request a Live Consultation & Tailored Demo | LISDESK',
     activeNav: 'demo',
     solutions,
+    query: req.query || {}
+  });
+};
+
+exports.getTermsPage = async (req, reply) => {
+  return reply.view('pages/terms', {
+    pageTitle: 'Terms & Conditions | LISDESK — LIMS Platform',
+    activeNav: '',
+    query: req.query || {}
+  });
+};
+
+exports.getPrivacyPolicyPage = async (req, reply) => {
+  return reply.view('pages/privacy-policy', {
+    pageTitle: 'Privacy Policy | LISDESK — LIMS Platform',
+    activeNav: '',
+    query: req.query || {}
+  });
+};
+
+exports.getDataPolicyPage = async (req, reply) => {
+  return reply.view('pages/data-policy', {
+    pageTitle: 'Data Policy | LISDESK — LIMS Platform',
+    activeNav: '',
+    query: req.query || {}
+  });
+};
+
+exports.getRefundPolicyPage = async (req, reply) => {
+  return reply.view('pages/refund-policy', {
+    pageTitle: 'Refund & Cancellation Policy | LISDESK — LIMS Platform',
+    activeNav: '',
     query: req.query || {}
   });
 };

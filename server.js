@@ -49,7 +49,7 @@ fastify.setNotFoundHandler((request, reply) => {
     });
   }
   return reply.status(404).view('pages/404', {
-    pageTitle: 'Page Not Found | OmniLIS Informatics',
+    pageTitle: 'Page Not Found | LISDESK — LIMS Platform',
     activeNav: '',
     message: 'The requested page or diagnostic resource does not exist in the system.'
   });
@@ -67,7 +67,7 @@ fastify.setErrorHandler((error, request, reply) => {
   return reply.status(500).send(`
     <html>
       <body style="font-family: sans-serif; padding: 40px; background: #F8FAFC; color: #172033;">
-        <h2 style="color: #0F6CBD;">OmniLIS Application Notice</h2>
+        <h2 style="color: #0F6CBD;">LISDESK Application Notice</h2>
         <p>A server error occurred while processing this clinical view.</p>
         <pre style="background: #FFFFFF; padding: 15px; border-radius: 8px; border: 1px solid #E2E8F0;">${error.message}</pre>
         <p><a href="/" style="color: #0F6CBD; font-weight: 600;">&larr; Return to Dashboard</a></p>
@@ -87,7 +87,7 @@ const start = async () => {
 
     await fastify.listen({ port: PORT, host: HOST });
     console.log(`\n============================================================`);
-    console.log(`  OmniLIS Informatics Platform running at: http://localhost:${PORT}`);
+    console.log(`  LISDESK — LIMS Platform running at: http://localhost:${PORT}`);
     console.log(`  Admin Dashboard: http://localhost:${PORT}/admin`);
     console.log(`  Theme: Blue (#0F6CBD) + Teal (#0F9D8A)`);
     console.log(`============================================================\n`);

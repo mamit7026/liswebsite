@@ -156,7 +156,7 @@ exports.submitNewsletter = async (req, reply) => {
     if (isJson) {
       return reply.status(200).send({
         success: true,
-        message: 'Thank you for subscribing to OmniLIS Clinical Insights & Regulatory Updates!'
+        message: 'Thank you for subscribing to LISDESK Clinical Insights & Regulatory Updates!'
       });
     }
 
