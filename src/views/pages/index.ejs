@@ -1,6 +1,8 @@
 <%- include('../partials/head') %>
 <%- include('../partials/navbar') %>
 
+<main id="main-content">
+
 <!-- ==========================================================================
      Enterprise Hero Section with Interactive Workstation Console
      ========================================================================== -->
@@ -42,7 +44,7 @@
             <span>&lt; 5ms Auto-Verification</span>
           </div>
           <div class="hero-proof-item">
-            <i class="bi bi-hdd-network text-teal" style="color: var(--secondary);"></i>
+            <i class="bi bi-hdd-network text-teal" style="color: #0F766E;"></i>
             <span>700+ Instrument Drivers</span>
           </div>
         </div>
@@ -303,10 +305,10 @@
               <span>Avg Core TAT: <strong>24.6 min</strong></span>
             </div>
             <div class="console-stat-pill d-none d-sm-flex">
-              <i class="bi bi-file-earmark-check text-teal fs-6" style="color: var(--secondary);"></i>
+              <i class="bi bi-file-earmark-check text-teal fs-6" style="color: #0F766E;"></i>
               <span>Clean Claims: <strong>97.2%</strong></span>
             </div>
-            <div class="console-stat-pill font-mono" style="font-size: 0.72rem; color: var(--secondary);">
+            <div class="console-stat-pill font-mono" style="font-size: 0.72rem; color: #0F766E;">
               &lt; 5ms AutoVerify
             </div>
           </div>
@@ -382,13 +384,16 @@
     <div class="row g-4">
       <div class="col-lg-4 col-md-6">
         <div class="card h-100 border rounded-3 overflow-hidden shadow-sm">
-          <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=600&q=80&auto=format&fit=crop"
+          <img src="/public/image/lab-chemistry.webp"
                alt="Clinical Chemistry and Hematology Automation Core"
+               width="600"
+               height="400"
                loading="lazy"
+               class="w-100"
                style="height: 200px; object-fit: cover;">
           <div class="card-body p-4">
             <span class="badge bg-primary-subtle text-primary border border-primary-subtle mb-2">Hospital Core Labs</span>
-            <h5 class="fw-bold mb-2">High-Throughput Clinical Chemistry</h5>
+            <h3 class="fw-bold fs-5 mb-2">High-Throughput Clinical Chemistry</h3>
             <p class="small text-muted mb-3">
               Automated specimen sorting, bidirectional analyzer rack querying, and Westgard multi-rule QC with real-time autoverification.
             </p>
@@ -402,13 +407,16 @@
 
       <div class="col-lg-4 col-md-6">
         <div class="card h-100 border rounded-3 overflow-hidden shadow-sm">
-          <img src="https://images.unsplash.com/photo-1579154341098-e4e158cc7f55?w=600&q=80&auto=format&fit=crop"
+          <img src="/public/image/lab-genomics.webp"
                alt="Genomics and Molecular Pathology Laboratory"
+               width="600"
+               height="400"
                loading="lazy"
+               class="w-100"
                style="height: 200px; object-fit: cover;">
           <div class="card-body p-4">
             <span class="badge bg-purple-subtle text-purple border border-purple-subtle mb-2" style="color: var(--purple);">Genomics &amp; NGS</span>
-            <h5 class="fw-bold mb-2">Molecular Diagnostics &amp; Next-Gen Sequencing</h5>
+            <h3 class="fw-bold fs-5 mb-2">Molecular Diagnostics &amp; Next-Gen Sequencing</h3>
             <p class="small text-muted mb-3">
               Direct ingestion of FASTQ/BAM/VCF files from Illumina instruments with automated ACMG/AMP variant interpretation workflows.
             </p>
@@ -422,13 +430,16 @@
 
       <div class="col-lg-4 col-md-6">
         <div class="card h-100 border rounded-3 overflow-hidden shadow-sm">
-          <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=80&auto=format&fit=crop"
+          <img src="/public/image/lab-pathology.webp"
                alt="Anatomic Pathology and Histology Laboratory"
+               width="600"
+               height="400"
                loading="lazy"
+               class="w-100"
                style="height: 200px; object-fit: cover;">
           <div class="card-body p-4">
             <span class="badge bg-info-subtle text-info border border-info-subtle mb-2">Anatomic Pathology</span>
-            <h5 class="fw-bold mb-2">Histology &amp; Synoptic Cancer Reporting</h5>
+            <h3 class="fw-bold fs-5 mb-2">Histology &amp; Synoptic Cancer Reporting</h3>
             <p class="small text-muted mb-3">
               Cassette and slide 2D barcoding, Whole Slide Imaging (WSI) viewer integration, and College of American Pathologists (CAP) protocols.
             </p>
@@ -480,7 +491,7 @@
               </ul>
 
               <div class="mt-auto pt-3 border-top d-flex justify-content-between align-items-center">
-                <a href="/solutions/<%= sol.slug %>" class="btn btn-sm btn-outline-omni">
+                <a href="/solutions/<%= sol.slug %>" class="btn btn-sm btn-outline-omni" aria-label="Explore <%= sol.title %> Architecture">
                   Explore Architecture &rarr;
                 </a>
                 <button type="button" class="btn btn-sm btn-link text-primary text-decoration-none fw-semibold p-0" data-bs-toggle="modal" data-bs-target="#demoModal">
@@ -494,7 +505,7 @@
         <div class="col-12 text-center py-4">
           <div class="p-4 bg-white rounded border text-muted">
             <i class="bi bi-inbox fs-2 text-primary d-block mb-2"></i>
-            <h5 class="fw-bold mb-1">Database Ready For Custom Solutions</h5>
+            <h3 class="fw-bold fs-5 mb-1">Database Ready For Custom Solutions</h3>
             <p class="small text-muted mb-0">Dynamic module data can be populated via MongoDB administrative interface.</p>
           </div>
         </div>
@@ -552,7 +563,7 @@
               </div>
               <div class="col-6">
                 <div class="p-3 bg-slate-50 rounded border">
-                  <div class="fw-bold text-teal" style="color: var(--secondary);"><i class="bi bi-truck me-1"></i> Courier Tracking</div>
+                  <div class="fw-bold text-teal" style="color: #0F766E;"><i class="bi bi-truck me-1"></i> Courier Tracking</div>
                   <div class="small text-muted">Coolbox temperature and GPS transit telemetry</div>
                 </div>
               </div>
@@ -851,7 +862,7 @@ OBR|1|ORD9021||80053^COMPREHENSIVE METABOLIC PANEL^CPT4|||20261001123200
                 <span class="badge bg-slate-100 text-slate-800 border px-2 py-1"><%= cs.labType %></span>
                 <span class="fw-bold text-success font-mono" style="font-size: 0.9rem;"><%= cs.stat %></span>
               </div>
-              <h4 class="card-title fs-5 mb-1"><%= cs.title %></h4>
+              <h3 class="card-title fs-5 mb-1"><%= cs.title %></h3>
               <div class="text-muted small mb-3"><%= cs.subtitle %> &bull; <span class="fw-semibold"><%= cs.testsPerDay %></span></div>
               <p class="card-text small mb-4"><%= cs.summary %></p>
               
@@ -866,7 +877,7 @@ OBR|1|ORD9021||80053^COMPREHENSIVE METABOLIC PANEL^CPT4|||20261001123200
         <div class="col-md-4">
           <div class="omni-card">
             <span class="badge bg-slate-100 text-slate-800 border align-self-start mb-2">Hospital Health System</span>
-            <h4 class="card-title fs-5 mb-1">Turnaround Time Acceleration</h4>
+            <h3 class="card-title fs-5 mb-1">Turnaround Time Acceleration</h3>
             <div class="text-muted small mb-3">Auto-verification across high-volume core labs</div>
             <p class="card-text small">Average 46% reduction in turnaround time from tube draw to physician chart drop with bidirectional instrument querying.</p>
             <div class="p-2 bg-slate-50 rounded border mt-auto small text-primary fw-bold">Verified Clinical Metric</div>
@@ -875,16 +886,16 @@ OBR|1|ORD9021||80053^COMPREHENSIVE METABOLIC PANEL^CPT4|||20261001123200
         <div class="col-md-4">
           <div class="omni-card">
             <span class="badge bg-slate-100 text-slate-800 border align-self-start mb-2">Reference Laboratory</span>
-            <h4 class="card-title fs-5 mb-1">First-Pass Clean Claim Yield</h4>
+            <h3 class="card-title fs-5 mb-1">First-Pass Clean Claim Yield</h3>
             <div class="text-muted small mb-3">Front-end ANSI 270/271 demographic scrubbing</div>
             <p class="card-text small">Achieved 96.8% clean first-pass submission without third-party delay by checking medical necessity during accessioning.</p>
-            <div class="p-2 bg-slate-50 rounded border mt-auto small text-teal fw-bold" style="color: var(--secondary);">Verified Revenue Metric</div>
+            <div class="p-2 bg-slate-50 rounded border mt-auto small text-teal fw-bold" style="color: #0F766E;">Verified Revenue Metric</div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="omni-card">
             <span class="badge bg-slate-100 text-slate-800 border align-self-start mb-2">Genomics Core</span>
-            <h4 class="card-title fs-5 mb-1">Automated Variant Interpretation</h4>
+            <h3 class="card-title fs-5 mb-1">Automated Variant Interpretation</h3>
             <div class="text-muted small mb-3">Direct Illumina NovaSeq and DRAGEN sync</div>
             <p class="card-text small">Cut manual curator review hours by 65% through automated FASTQ-to-VCF classification aligned with ACMG/AMP guidelines.</p>
             <div class="p-2 bg-slate-50 rounded border mt-auto small text-purple fw-bold" style="color: var(--purple);">Verified Genomic Metric</div>
@@ -918,5 +929,6 @@ OBR|1|ORD9021||80053^COMPREHENSIVE METABOLIC PANEL^CPT4|||20261001123200
     </div>
   </div>
 </section>
+</main>
 
 <%- include('../partials/footer') %>

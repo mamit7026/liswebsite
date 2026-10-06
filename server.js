@@ -15,7 +15,7 @@ fastify.register(require('@fastify/formbody'));
 fastify.register(require('@fastify/static'), {
   root: path.join(__dirname, 'public'),
   prefix: '/public/',
-  maxAge: '1d'
+  maxAge: '30d'
 });
 
 // Favicon handler
@@ -41,6 +41,9 @@ fastify.register(require('./src/routes/adminRoutes'));
 
 // Custom 404 Not Found Handler
 fastify.setNotFoundHandler((request, reply) => {
+  if (request.raw.url.endsWith('.map')) {
+    return reply.status(404).type('application/json').send({});
+  }
   const isApi = request.raw.url.startsWith('/api/');
   if (isApi) {
     return reply.status(404).send({
