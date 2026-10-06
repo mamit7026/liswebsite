@@ -1,25 +1,6 @@
 <!-- Footer Component -->
 <footer class="footer-omni">
   <div class="container">
-    
-    <!-- Compliance Badges Banner -->
-    <div class="row align-items-center mb-5 pb-4 border-bottom border-secondary border-opacity-25">
-      <div class="col-lg-3 mb-3 mb-lg-0">
-        <h6 class="text-white fw-bold mb-1 text-uppercase" style="font-size: 0.78rem; letter-spacing: 0.12em; color: var(--secondary) !important;">Regulatory Standards</h6>
-        <p class="small text-muted mb-0">Certified and accredited for mission-critical diagnostics</p>
-      </div>
-      <div class="col-lg-9">
-        <div class="d-flex flex-wrap gap-2 justify-content-lg-end align-items-center">
-          <span class="badge bg-dark border border-secondary text-white py-2 px-3"><i class="bi bi-shield-check text-info me-1"></i> CAP Accredited Ready</span>
-          <span class="badge bg-dark border border-secondary text-white py-2 px-3"><i class="bi bi-patch-check text-success me-1"></i> CLIA Compliant</span>
-          <span class="badge bg-dark border border-secondary text-white py-2 px-3"><i class="bi bi-award text-warning me-1"></i> ISO 15189 &amp; 20387</span>
-          <span class="badge bg-dark border border-secondary text-white py-2 px-3"><i class="bi bi-lock text-primary me-1"></i> HIPAA Omnibus</span>
-          <span class="badge bg-dark border border-secondary text-white py-2 px-3"><i class="bi bi-file-earmark-lock text-info me-1"></i> FDA 21 CFR Part 11</span>
-          <span class="badge bg-dark border border-secondary text-white py-2 px-3"><i class="bi bi-check2-circle me-1" style="color: var(--secondary);"></i> SOC 2 Type II</span>
-        </div>
-      </div>
-    </div>
-
     <!-- Main Footer Grid -->
     <div class="row g-4 mb-5">
       <!-- Col 1: Brand Info -->
@@ -32,23 +13,25 @@
         <p class="small mb-4" style="color: #94A3B8; max-width: 340px;">
           Enterprise Laboratory Information Management System (LIMS) uniting clinical diagnostics, anatomic pathology, NGS genomics, and automated revenue cycle management.
         </p>
-        <div class="small text-muted mb-2">
-          <i class="bi bi-geo-alt me-2 text-primary"></i>
-          Karak, Kalyanpur, Nandakumar, West Bengal, India
+        <div class="footer-contact-item">
+          <i class="bi bi-geo-alt-fill contact-icon"></i>
+          <span class="footer-address-text">Karak, Kalyanpur, Nandakumar, Purba Medinipur, West Bengal, India</span>
         </div>
-        <div class="small text-muted mb-2">
-          <i class="bi bi-telephone me-2 text-primary"></i>
-          <a href="tel:+919907552631" class="text-muted text-decoration-none">+91 99075 52631</a>
-          &bull;
-          <a href="tel:+918927276802" class="text-muted text-decoration-none">+91 89272 76802</a>
+        <div class="footer-contact-item">
+          <i class="bi bi-telephone-fill contact-icon"></i>
+          <span>
+            <a href="tel:+919907552631">+91 99075 52631</a>
+            <span class="opacity-50 mx-1">&bull;</span>
+            <a href="tel:+918927276802">+91 89272 76802</a>
+          </span>
         </div>
-        <div class="small text-muted mb-2">
-          <i class="bi bi-clock me-2 text-primary"></i>
-          Mon–Sat: 9:00 AM – 6:00 PM IST
+        <div class="footer-contact-item">
+          <i class="bi bi-clock-fill contact-icon"></i>
+          <span>Mon–Sat: 9:00 AM – 6:00 PM IST</span>
         </div>
-        <div class="small text-muted">
-          <i class="bi bi-envelope me-2 text-primary"></i>
-          <a href="mailto:info@lisdesk.com" class="text-muted text-decoration-none">info@lisdesk.com</a>
+        <div class="footer-contact-item">
+          <i class="bi bi-envelope-fill contact-icon"></i>
+          <a href="mailto:info@lisdesk.com">info@lisdesk.com</a>
         </div>
       </div>
 
@@ -107,24 +90,24 @@
     <div class="footer-bottom">
       <div class="row align-items-center">
         <div class="col-md-6 mb-3 mb-md-0">
-          <div class="text-muted small">
+          <div class="footer-bottom-text">
             &copy; <%= new Date().getFullYear() %> LISDESK — LIMS Platform. All rights reserved.
-            <span class="d-block d-md-inline ms-md-2">Karak, Kalyanpur, Nandakumar, WB, India</span>
+            <span class="d-block d-md-inline ms-md-2 footer-address-inline">&bull; Karak, Kalyanpur, Nandakumar, WB, India</span>
           </div>
         </div>
         <div class="col-md-6">
-          <div class="d-flex flex-wrap gap-2 justify-content-md-end align-items-center">
-            <a href="/terms" class="text-muted small text-decoration-none">Terms &amp; Conditions</a>
-            <span class="text-muted small">&bull;</span>
-            <a href="/privacy-policy" class="text-muted small text-decoration-none">Privacy Policy</a>
-            <span class="text-muted small">&bull;</span>
-            <a href="/data-policy" class="text-muted small text-decoration-none">Data Policy</a>
-            <span class="text-muted small">&bull;</span>
-            <a href="/refund-policy" class="text-muted small text-decoration-none">Refund Policy</a>
-            <span class="text-muted small">&bull;</span>
-            <a href="/sitemap.xml" class="text-muted small text-decoration-none">Sitemap</a>
-            <span class="text-muted small">&bull;</span>
-            <a href="/admin" class="text-muted small text-decoration-none opacity-50">Admin</a>
+          <div class="d-flex flex-wrap gap-2 justify-content-md-end align-items-center footer-bottom-links">
+            <a href="/terms" class="small">Terms &amp; Conditions</a>
+            <span class="opacity-25">&bull;</span>
+            <a href="/privacy-policy" class="small">Privacy Policy</a>
+            <span class="opacity-25">&bull;</span>
+            <a href="/data-policy" class="small">Data Policy</a>
+            <span class="opacity-25">&bull;</span>
+            <a href="/refund-policy" class="small">Refund Policy</a>
+            <span class="opacity-25">&bull;</span>
+            <a href="/sitemap.xml" class="small">Sitemap</a>
+            <span class="opacity-25">&bull;</span>
+            <a href="/admin" class="small opacity-60">Admin</a>
           </div>
         </div>
       </div>

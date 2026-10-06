@@ -2,80 +2,209 @@
 <%- include('../partials/navbar') %>
 
 <!-- ==========================================================================
-     Hero Section with Live Specimen Visualizer
+     Enterprise Hero Section with Interactive Workstation Console
      ========================================================================== -->
 <section class="hero-section">
   <div class="container">
     <div class="row align-items-center">
       
-      <!-- Hero Copy -->
-      <div class="col-lg-6 mb-5 mb-lg-0">
-        <div class="hero-badge">
-          <span class="pulse-dot"></span>
-          <span>Next-Generation Diagnostics &bull; LISDESK 2026</span>
+      <!-- Left Column: Value Proposition -->
+      <div class="col-lg-5 mb-5 mb-lg-0">
+        <div class="hero-pill-badge">
+          <span class="live-dot"></span>
+          <span>LISDESK 2026 Enterprise Release</span>
         </div>
         
         <h1 class="hero-title">
-          The Intelligent <span class="hero-gradient-text">LIMS Platform</span> for Modern Diagnostic Labs
+          The Intelligent <span class="text-brand-accent">LIMS Platform</span> for Modern Diagnostic Laboratories
         </h1>
         
         <p class="hero-subtitle">
-          LISDESK unifies high-throughput clinical chemistry, anatomic pathology, NGS genomics, and automated RCM billing — all in one enterprise-grade LIMS built for accuracy, speed, and compliance.
+          Unify high-throughput clinical chemistry, anatomic pathology, NGS genomics, and automated RCM billing in a single, high-reliability platform built for compliance, speed, and precision.
         </p>
 
-        <div class="d-flex flex-wrap gap-3 mb-4">
-          <button type="button" class="btn btn-primary-omni btn-lg" data-bs-toggle="modal" data-bs-target="#demoModal">
+        <div class="d-flex flex-wrap gap-2 mb-4">
+          <button type="button" class="btn btn-primary-omni" data-bs-toggle="modal" data-bs-target="#demoModal">
             <i class="bi bi-calendar-check-fill"></i> Schedule Live Demo
           </button>
-          <a href="/solutions" class="btn btn-outline-omni btn-lg">
-            <i class="bi bi-compass"></i> Explore Solutions
+          <a href="/solutions" class="btn btn-outline-omni">
+            <i class="bi bi-diagram-3"></i> View Solutions
           </a>
         </div>
 
-        <div class="d-flex align-items-center gap-4 text-muted small pt-2">
-          <div><i class="bi bi-shield-check text-success me-1"></i> CAP / CLIA Inspection Ready</div>
-          <div><i class="bi bi-lightning-charge text-primary me-1"></i> &lt; 5ms Auto-Verification</div>
-          <div><i class="bi bi-check-all text-teal me-1" style="color: var(--secondary);"></i> 700+ Analyzers</div>
+        <div class="hero-proof-list">
+          <div class="hero-proof-item">
+            <i class="bi bi-shield-check text-success"></i>
+            <span>CAP / CLIA Certified</span>
+          </div>
+          <div class="hero-proof-item">
+            <i class="bi bi-lightning-charge-fill text-primary"></i>
+            <span>&lt; 5ms Auto-Verification</span>
+          </div>
+          <div class="hero-proof-item">
+            <i class="bi bi-hdd-network text-teal" style="color: var(--secondary);"></i>
+            <span>700+ Instrument Drivers</span>
+          </div>
         </div>
       </div>
 
-      <!-- Hero Visual: Real-time Live Engine Visualizer -->
-      <div class="col-lg-6">
-        <div class="hero-visual-card">
-          <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
-            <div class="d-flex align-items-center gap-2">
-              <span class="badge bg-primary px-2 py-1"><i class="bi bi-cpu me-1"></i> ENGINE ACTIVE</span>
-              <span class="fw-bold small" style="color: var(--text-main);">LISDESK AutoVerify Stream</span>
+      <!-- Right Column: Unified Enterprise Workstation Console -->
+      <div class="col-lg-7">
+        <div class="workstation-console">
+          
+          <!-- App Chrome Window Header -->
+          <div class="console-header">
+            <div class="console-window-dots">
+              <span class="console-dot dot-red"></span>
+              <span class="console-dot dot-yellow"></span>
+              <span class="console-dot dot-green"></span>
             </div>
-            <div class="small text-muted">
-              <span class="badge bg-success-subtle text-success border border-success-subtle">
-                <i class="bi bi-broadcast me-1"></i> Live 40M+ Nodes
+            <div class="console-title">
+              <i class="bi bi-laptop me-1"></i> LISDESK Console &bull; Central Core Laboratory &bull; Station #04
+            </div>
+            <div>
+              <span class="badge bg-primary px-2 py-1 font-mono" style="font-size: 0.68rem;">v2026.4.2</span>
+            </div>
+          </div>
+
+          <!-- Console Toolbar / Workstation View Switcher -->
+          <div class="console-toolbar">
+            <div class="console-tabs" id="heroConsoleTabs">
+              <button class="console-tab-btn active" data-view="lab">
+                <i class="bi bi-broadcast text-info"></i> Automated Lab Feed
+              </button>
+              <button class="console-tab-btn" data-view="queue">
+                <i class="bi bi-activity text-primary"></i> Specimen Queue
+              </button>
+              <button class="console-tab-btn" data-view="genomics">
+                <i class="bi bi-dna text-purple" style="color: var(--purple);"></i> NGS Genomics
+              </button>
+              <button class="console-tab-btn" data-view="telemetry">
+                <i class="bi bi-hdd-network text-success"></i> HL7/ASTM Hub
+              </button>
+            </div>
+            <div>
+              <span class="console-live-badge">
+                <i class="bi bi-circle-fill" style="font-size: 0.5rem;"></i> ENGINE LIVE
               </span>
             </div>
           </div>
 
-          <!-- Live Sample Stream Container -->
-          <div class="live-specimen-stream mb-3" id="specimenLiveStream">
-            <!-- Populated dynamically via JS -->
+          <!-- Console Dynamic View Container -->
+          <div class="console-view-container">
+            
+            <!-- View 1: High-Definition Lab Automation View (Default) -->
+            <div class="console-view-panel" id="viewLab">
+              <div class="lab-automation-screen">
+                <img src="/public/image/hero-laboratory.jpg" alt="Clinical Diagnostic Laboratory Automation Track">
+                <div class="lab-automation-hud">
+                  <div class="d-flex justify-content-between align-items-start">
+                    <span class="hud-pill">
+                      <i class="bi bi-broadcast text-info"></i> Central Core Track Line 01 &bull; Active
+                    </span>
+                    <span class="hud-pill font-mono" style="color: #6EE7B7; border-color: rgba(110, 231, 183, 0.3);">
+                      <i class="bi bi-check-circle-fill text-success me-1"></i> 700+ Instruments Linked
+                    </span>
+                  </div>
+                  <div class="d-flex flex-wrap justify-content-between align-items-end gap-2">
+                    <span class="hud-pill hud-pill-highlight">
+                      <i class="bi bi-upc-scan text-white"></i> Positive 2D Patient ID &bull; SP-94821
+                    </span>
+                    <span class="hud-pill font-mono text-warning">
+                      <i class="bi bi-lightning-charge me-1"></i> &lt; 5ms AutoVerify Engine
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- View 2: Specimen Queue Table View -->
+            <div class="console-view-panel d-none" id="viewQueue">
+              <div class="p-2">
+                <div class="table-responsive">
+                  <table class="specimen-table">
+                    <thead>
+                      <tr>
+                        <th>Accession #</th>
+                        <th>Patient / Demographic</th>
+                        <th>Test Profile</th>
+                        <th>Analyzer Line</th>
+                        <th>Delta / Range</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody id="consoleSpecimenBody">
+                      <!-- Populated dynamically via JS -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- View 3: NGS Genomics View -->
+            <div class="console-view-panel d-none" id="viewGenomics">
+              <div class="p-2">
+                <div class="table-responsive">
+                  <table class="specimen-table">
+                    <thead>
+                      <tr>
+                        <th>Assay ID</th>
+                        <th>Patient / Subject</th>
+                        <th>Targeted Panel</th>
+                        <th>Sequencer</th>
+                        <th>Metric / Coverage</th>
+                        <th>ACMG Status</th>
+                      </tr>
+                    </thead>
+                    <tbody id="consoleGenomicsBody">
+                      <!-- Populated dynamically via JS -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- View 4: HL7 / ASTM Telemetry Stream -->
+            <div class="console-view-panel d-none" id="viewTelemetry">
+              <div class="p-2">
+                <div class="table-responsive">
+                  <table class="specimen-table">
+                    <thead>
+                      <tr>
+                        <th>Interface</th>
+                        <th>Target System</th>
+                        <th>Protocol / Stream</th>
+                        <th>Socket / Port</th>
+                        <th>Telemetry Latency</th>
+                        <th>Connection</th>
+                      </tr>
+                    </thead>
+                    <tbody id="consoleTelemetryBody">
+                      <!-- Populated dynamically via JS -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
           </div>
 
-          <!-- Live Pipeline Stats footer -->
-          <div class="p-3 bg-light rounded-3 d-flex justify-content-around text-center border">
-            <div>
-              <div class="fw-bold fs-5 text-primary">88.4%</div>
-              <div class="text-muted small" style="font-size: 0.75rem;">Auto-Verified</div>
+          <!-- Console Footer Summary -->
+          <div class="console-footer">
+            <div class="console-stat-pill">
+              <i class="bi bi-check-all text-success fs-6"></i>
+              <span>Auto-Verified: <strong id="statAutoVerified">88.4%</strong></span>
             </div>
-            <div class="border-end"></div>
-            <div>
-              <div class="fw-bold fs-5" style="color: var(--secondary);">24.6 min</div>
-              <div class="text-muted small" style="font-size: 0.75rem;">Avg TAT Core Lab</div>
+            <div class="console-stat-pill">
+              <i class="bi bi-clock-history text-primary fs-6"></i>
+              <span>Avg Core TAT: <strong>24.6 min</strong></span>
             </div>
-            <div class="border-end"></div>
-            <div>
-              <div class="fw-bold fs-5 text-success">97.2%</div>
-              <div class="text-muted small" style="font-size: 0.75rem;">Clean Claims</div>
+            <div class="console-stat-pill d-none d-sm-flex">
+              <i class="bi bi-file-earmark-check text-teal fs-6" style="color: var(--secondary);"></i>
+              <span>Clean Claims: <strong>97.2%</strong></span>
             </div>
           </div>
+
         </div>
       </div>
 
@@ -89,102 +218,118 @@
 <section class="metrics-ribbon">
   <div class="container">
     <div class="row g-4">
-      <div class="col-6 col-md-3 metric-item">
+      <div class="col-6 col-lg-3 metric-item">
         <div class="metric-value counter-val" data-target="40" data-suffix="M+">40M+</div>
-        <div class="metric-label">Patient Samples / Year</div>
-        <div class="metric-sub">Processed with 99.99% uptime</div>
+        <div class="metric-label">Patient Tests Annually</div>
+        <div class="metric-sub">Processed with 99.99% high-availability uptime</div>
       </div>
-      <div class="col-6 col-md-3 metric-item">
-        <div class="metric-value counter-val" data-target="85" data-suffix="%+">85%+</div>
-        <div class="metric-label">Auto-Verification Rate</div>
-        <div class="metric-sub">Eliminates manual signout delays</div>
+      <div class="col-6 col-lg-3 metric-item">
+        <div class="metric-value counter-val" data-target="88.4" data-suffix="%" data-decimals="1">88.4%</div>
+        <div class="metric-label">Automated Verification Rate</div>
+        <div class="metric-sub">Multi-rule clinical decision matrix &amp; delta checks</div>
       </div>
-      <div class="col-6 col-md-3 metric-item">
+      <div class="col-6 col-lg-3 metric-item">
         <div class="metric-value counter-val" data-target="700" data-suffix="+">700+</div>
-        <div class="metric-label">Analyzer Drivers</div>
-        <div class="metric-sub">ASTM, HL7, RS232, TCP/IP</div>
+        <div class="metric-label">Bidirectional Analyzer Drivers</div>
+        <div class="metric-sub">Native ASTM E1381/E1394, HL7 v2/v3, and FHIR</div>
       </div>
-      <div class="col-6 col-md-3 metric-item">
+      <div class="col-6 col-lg-3 metric-item">
         <div class="metric-value counter-val" data-target="96.8" data-suffix="%" data-decimals="1">96.8%</div>
-        <div class="metric-label">First-Pass Clean Claims</div>
-        <div class="metric-sub">Integrated front-end RCM billing</div>
+        <div class="metric-label">First-Pass Clean Claim Yield</div>
+        <div class="metric-sub">Point-of-order demographic &amp; medical necessity check</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ==========================================================================
-     Enterprise Interoperability & Instrument Logos
+     Enterprise Ecosystem & Compliance Badges
      ========================================================================== -->
 <div class="trust-logos-strip">
   <div class="container">
-    <div class="d-flex flex-wrap justify-content-center align-items-center gap-3">
-      <span class="text-muted small text-uppercase fw-bold me-2">Universal Ecosystem:</span>
+    <div class="d-flex flex-wrap justify-content-center align-items-center gap-2">
+      <span class="text-slate-500 small text-uppercase fw-bold me-2" style="font-size: 0.75rem; letter-spacing: 0.08em;">Universal EHR &amp; Analyzer Ecosystem:</span>
       <span class="trust-badge-pill"><i class="bi bi-hospital text-primary"></i> Epic Systems</span>
-      <span class="trust-badge-pill"><i class="bi bi-heart-pulse text-danger"></i> Oracle Health / Cerner</span>
-      <span class="trust-badge-pill"><i class="bi bi-dna text-teal" style="color: var(--secondary);"></i> Illumina NovaSeq &amp; NextSeq</span>
+      <span class="trust-badge-pill"><i class="bi bi-heart-pulse text-danger"></i> Cerner / Oracle Health</span>
+      <span class="trust-badge-pill"><i class="bi bi-dna text-purple" style="color: var(--purple);"></i> Illumina NovaSeq &amp; DRAGEN</span>
       <span class="trust-badge-pill"><i class="bi bi-droplet text-primary"></i> Roche Cobas &reg;</span>
-      <span class="trust-badge-pill"><i class="bi bi-virus2 text-info"></i> Abbott Alinity</span>
-      <span class="trust-badge-pill"><i class="bi bi-gear-wide-connected text-success"></i> Siemens Healthineers</span>
+      <span class="trust-badge-pill"><i class="bi bi-virus text-info"></i> Abbott Alinity</span>
+      <span class="trust-badge-pill"><i class="bi bi-gear-wide-connected text-success"></i> Siemens Atellica</span>
+      <span class="trust-badge-pill"><i class="bi bi-shield-lock text-dark"></i> HL7 FHIR R4 Ready</span>
     </div>
   </div>
 </div>
 
 <!-- ==========================================================================
-     LISDESK Visual Showcase — Open-Source Lab Images
+     Specialized Laboratory Environments
      ========================================================================== -->
-<section class="section-padding pt-5 pb-5" style="background: #FFFFFF;">
+<section class="section-padding bg-white border-bottom">
   <div class="container">
     <div class="section-title-wrap">
-      <span class="section-kicker">Real-World Lab Environments</span>
-      <h2 class="section-title">Built for Laboratories Like Yours</h2>
+      <span class="section-kicker">Multi-Disciplinary Scalability</span>
+      <h2 class="section-title">Engineered for Complex Diagnostic Environments</h2>
       <p class="section-lead">
-        From high-throughput hospital core labs to specialized genomics centers — LISDESK adapts to your exact workflow.
+        From multi-facility hospital reference networks to specialized genomics sequencing centers and anatomical pathology practices.
       </p>
     </div>
+
     <div class="row g-4">
       <div class="col-lg-4 col-md-6">
-        <div class="lab-img-card" style="position:relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg);">
-          <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=500&q=80&auto=format&fit=crop"
-               alt="Clinical laboratory with automated analyzers"
+        <div class="card h-100 border rounded-3 overflow-hidden shadow-sm">
+          <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=600&q=80&auto=format&fit=crop"
+               alt="Clinical Chemistry and Hematology Automation Core"
                loading="lazy"
-               style="width:100%; height:220px; object-fit:cover; display:block; transition: transform 0.4s ease;"
-               onmouseover="this.style.transform='scale(1.04)'"
-               onmouseout="this.style.transform='scale(1)'">
-          <div style="position:absolute; bottom:0; left:0; right:0; background: linear-gradient(0deg, rgba(15,19,43,0.85) 0%, transparent 100%); padding: 20px 16px 14px;">
-            <span class="badge bg-primary text-white mb-1">Core Diagnostics</span>
-            <div class="text-white fw-bold" style="font-size:0.95rem;">Hematology &amp; Chemistry</div>
-            <div class="text-white-50 small">Automated high-volume processing</div>
+               style="height: 200px; object-fit: cover;">
+          <div class="card-body p-4">
+            <span class="badge bg-primary-subtle text-primary border border-primary-subtle mb-2">Hospital Core Labs</span>
+            <h5 class="fw-bold mb-2">High-Throughput Clinical Chemistry</h5>
+            <p class="small text-muted mb-3">
+              Automated specimen sorting, bidirectional analyzer rack querying, and Westgard multi-rule QC with real-time autoverification.
+            </p>
+            <ul class="feature-check-list small mb-0">
+              <li><i class="bi bi-check2"></i> Sub-second host query responses</li>
+              <li><i class="bi bi-check2"></i> 365-day cumulative patient delta checks</li>
+            </ul>
           </div>
         </div>
       </div>
+
       <div class="col-lg-4 col-md-6">
-        <div class="lab-img-card" style="position:relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg);">
-          <img src="https://images.unsplash.com/photo-1579154341098-e4e158cc7f55?w=500&q=80&auto=format&fit=crop"
-               alt="Molecular biology and genomics laboratory"
+        <div class="card h-100 border rounded-3 overflow-hidden shadow-sm">
+          <img src="https://images.unsplash.com/photo-1579154341098-e4e158cc7f55?w=600&q=80&auto=format&fit=crop"
+               alt="Genomics and Molecular Pathology Laboratory"
                loading="lazy"
-               style="width:100%; height:220px; object-fit:cover; display:block; transition: transform 0.4s ease;"
-               onmouseover="this.style.transform='scale(1.04)'"
-               onmouseout="this.style.transform='scale(1)'">
-          <div style="position:absolute; bottom:0; left:0; right:0; background: linear-gradient(0deg, rgba(15,19,43,0.85) 0%, transparent 100%); padding: 20px 16px 14px;">
-            <span class="badge mb-1" style="background: var(--secondary);">Genomics &amp; NGS</span>
-            <div class="text-white fw-bold" style="font-size:0.95rem;">Molecular &amp; Sequencing Labs</div>
-            <div class="text-white-50 small">DRAGEN pipeline &amp; ACMG variant classification</div>
+               style="height: 200px; object-fit: cover;">
+          <div class="card-body p-4">
+            <span class="badge bg-purple-subtle text-purple border border-purple-subtle mb-2" style="color: var(--purple);">Genomics &amp; NGS</span>
+            <h5 class="fw-bold mb-2">Molecular Diagnostics &amp; Next-Gen Sequencing</h5>
+            <p class="small text-muted mb-3">
+              Direct ingestion of FASTQ/BAM/VCF files from Illumina instruments with automated ACMG/AMP variant interpretation workflows.
+            </p>
+            <ul class="feature-check-list small mb-0">
+              <li><i class="bi bi-check2"></i> DRAGEN bioinformatic pipeline sync</li>
+              <li><i class="bi bi-check2"></i> Somatic and germline panel curation</li>
+            </ul>
           </div>
         </div>
       </div>
+
       <div class="col-lg-4 col-md-6">
-        <div class="lab-img-card" style="position:relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg);">
-          <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=500&q=80&auto=format&fit=crop"
-               alt="Pathology laboratory with microscopes and tissue processing"
+        <div class="card h-100 border rounded-3 overflow-hidden shadow-sm">
+          <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=80&auto=format&fit=crop"
+               alt="Anatomic Pathology and Histology Laboratory"
                loading="lazy"
-               style="width:100%; height:220px; object-fit:cover; display:block; transition: transform 0.4s ease;"
-               onmouseover="this.style.transform='scale(1.04)'"
-               onmouseout="this.style.transform='scale(1)'">
-          <div style="position:absolute; bottom:0; left:0; right:0; background: linear-gradient(0deg, rgba(15,19,43,0.85) 0%, transparent 100%); padding: 20px 16px 14px;">
-            <span class="badge bg-info text-white mb-1">Anatomic Pathology</span>
-            <div class="text-white fw-bold" style="font-size:0.95rem;">Digital Pathology &amp; CAP Reporting</div>
-            <div class="text-white-50 small">Synoptic CAP cancer protocols &amp; WSI integration</div>
+               style="height: 200px; object-fit: cover;">
+          <div class="card-body p-4">
+            <span class="badge bg-info-subtle text-info border border-info-subtle mb-2">Anatomic Pathology</span>
+            <h5 class="fw-bold mb-2">Histology &amp; Synoptic Cancer Reporting</h5>
+            <p class="small text-muted mb-3">
+              Cassette and slide 2D barcoding, Whole Slide Imaging (WSI) viewer integration, and College of American Pathologists (CAP) protocols.
+            </p>
+            <ul class="feature-check-list small mb-0">
+              <li><i class="bi bi-check2"></i> Synoptic CAP cancer checklists</li>
+              <li><i class="bi bi-check2"></i> Multi-pathologist consensus review</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -198,10 +343,10 @@
 <section class="section-padding">
   <div class="container">
     <div class="section-title-wrap">
-      <span class="section-kicker">End-to-End Clinical Disciplines</span>
-      <h2 class="section-title">Built for Every Laboratory Discipline</h2>
+      <span class="section-kicker">Platform Capabilities</span>
+      <h2 class="section-title">Complete Diagnostic Platform Modules</h2>
       <p class="section-lead">
-        From multi-facility hospital core laboratories to high-throughput commercial reference labs and genomic sequencing centers.
+        Modular infrastructure designed to connect seamlessly with your existing hospital information systems and reference analyzers.
       </p>
     </div>
 
@@ -213,7 +358,7 @@
               <div class="card-icon-wrap">
                 <i class="bi <%= sol.icon || 'bi-capsule' %>"></i>
               </div>
-              <div class="badge bg-light text-primary align-self-start mb-2 px-2 py-1 fw-semibold border" style="font-size: 0.75rem;">
+              <div class="badge bg-slate-100 text-slate-800 align-self-start mb-2 px-2 py-1 fw-semibold border" style="font-size: 0.75rem;">
                 <%= sol.badgeText || sol.category %>
               </div>
               <h3 class="card-title"><%= sol.title %></h3>
@@ -230,7 +375,7 @@
 
               <div class="mt-auto pt-3 border-top d-flex justify-content-between align-items-center">
                 <a href="/solutions/<%= sol.slug %>" class="btn btn-sm btn-outline-omni">
-                  Explore Module &rarr;
+                  Explore Architecture &rarr;
                 </a>
                 <button type="button" class="btn btn-sm btn-link text-primary text-decoration-none fw-semibold p-0" data-bs-toggle="modal" data-bs-target="#demoModal">
                   Book Demo
@@ -241,10 +386,10 @@
         <% }) %>
       <% } else { %>
         <div class="col-12 text-center py-4">
-          <div class="p-4 bg-white rounded-4 border text-muted">
+          <div class="p-4 bg-white rounded border text-muted">
             <i class="bi bi-inbox fs-2 text-primary d-block mb-2"></i>
             <h5 class="fw-bold mb-1">Database Ready For Custom Solutions</h5>
-            <p class="small text-muted mb-0">No static seed data attached. New clinical configurations can be added directly via database or REST API.</p>
+            <p class="small text-muted mb-0">Dynamic module data can be populated via MongoDB administrative interface.</p>
           </div>
         </div>
       <% } %>
@@ -255,29 +400,29 @@
 <!-- ==========================================================================
      Interactive 4-Stage Diagnostic Workflow Architecture
      ========================================================================== -->
-<section class="section-padding bg-light" style="background-color: var(--bg-light) !important;">
+<section class="section-padding bg-slate-100 border-top border-bottom">
   <div class="container">
     <div class="section-title-wrap">
-      <span class="section-kicker">Unified Operating Architecture</span>
+      <span class="section-kicker">Operating Lifecycle</span>
       <h2 class="section-title">The Complete Specimen Lifecycle</h2>
       <p class="section-lead">
-        Replace disconnected point solutions with a single cohesive platform across all 4 operational phases.
+        Replace disparate point software with a unified operational continuum across all 4 clinical phases.
       </p>
     </div>
 
     <!-- Nav tabs -->
     <div class="arch-tab-nav">
       <button class="arch-tab-btn active" data-target="phase1">
-        <i class="bi bi-box-arrow-in-right"></i> 1. Pre-Analytical
+        <i class="bi bi-box-arrow-in-right"></i> 1. Pre-Analytical &amp; Intake
       </button>
       <button class="arch-tab-btn" data-target="phase2">
-        <i class="bi bi-cpu"></i> 2. Analytical &amp; QC
+        <i class="bi bi-cpu"></i> 2. Analytical &amp; QC Engine
       </button>
       <button class="arch-tab-btn" data-target="phase3">
-        <i class="bi bi-check2-all"></i> 3. Post-Analytical
+        <i class="bi bi-check2-all"></i> 3. Auto-Verification &amp; Signout
       </button>
       <button class="arch-tab-btn" data-target="phase4">
-        <i class="bi bi-cash-stack"></i> 4. Financial &amp; RCM
+        <i class="bi bi-cash-stack"></i> 4. Front-End RCM Billing
       </button>
     </div>
 
@@ -287,36 +432,39 @@
       <div class="arch-panel" id="phase1">
         <div class="row align-items-center">
           <div class="col-lg-6 mb-4 mb-lg-0">
-            <span class="badge bg-primary text-white mb-2 px-3 py-1">PHASE 1: ORDER INTAKE &amp; ACCESSIONING</span>
-            <h3 class="fw-bold mb-3">Positive Patient Identification &amp; 2D Barcoding</h3>
+            <span class="badge bg-primary text-white mb-2 px-3 py-1 font-mono small">PHASE 1 &bull; INTAKE &amp; ACCESSIONING</span>
+            <h3 class="fw-bold mb-3">Positive Patient ID &amp; 2D DataMatrix Tracking</h3>
             <p class="text-muted mb-4">
-              Prevent pre-analytical errors before the tube is uncapped. Orders placed via EHR (HL7 ORM / FHIR) or the physician web portal instantly generate unique 2D DataMatrix barcodes with real-time patient demographic and insurance validation.
+              Prevent pre-analytical errors before tubes are uncapped. Electronic orders received via EHR (HL7 ORM / FHIR) or physician portals instantly generate 2D barcodes with real-time patient demographic and insurance eligibility verification.
             </p>
             <div class="row g-3">
               <div class="col-6">
-                <div class="p-3 bg-light rounded border">
+                <div class="p-3 bg-slate-50 rounded border">
                   <div class="fw-bold text-primary"><i class="bi bi-phone me-1"></i> Mobile Phlebotomy</div>
                   <div class="small text-muted">Bedside wristband barcode verification</div>
                 </div>
               </div>
               <div class="col-6">
-                <div class="p-3 bg-light rounded border">
+                <div class="p-3 bg-slate-50 rounded border">
                   <div class="fw-bold text-teal" style="color: var(--secondary);"><i class="bi bi-truck me-1"></i> Courier Tracking</div>
-                  <div class="small text-muted">Coolbox temperature and GPS transit logs</div>
+                  <div class="small text-muted">Coolbox temperature and GPS transit telemetry</div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-lg-6">
-            <div class="p-4 bg-dark text-white rounded-3 shadow">
-              <div class="small text-uppercase text-secondary fw-bold mb-2">HL7 EHR Order Ingestion</div>
-              <pre class="m-0 text-info font-monospace small" style="overflow-x: auto;">
+            <div class="terminal-box">
+              <div class="d-flex justify-content-between text-slate-400 small mb-2 border-bottom border-slate-800 pb-2">
+                <span>HL7 2.5.1 / FHIR Order Ingestion</span>
+                <span class="text-success"><i class="bi bi-check-circle-fill me-1"></i>STREAM ACTIVE</span>
+              </div>
+              <pre class="m-0 text-cyan font-mono small" style="overflow-x: auto;">
 MSH|^~\&|EPIC_EHR|METRO_HOSP|LISDESK|LAB_CORE|20261001123000||ORM^O01|MSG009812|P|2.5.1
 PID|1||MRN984210^^^METRO||ANDERSON^JAMES^M||19820415|M
 PV1|1|O|CLINIC_NORTH^^^ROOM102||||114920^DR_COLLINS
 ORC|NW|ORD9021|||||^^^20261001123500|||20261001123000
 OBR|1|ORD9021||80053^COMPREHENSIVE METABOLIC PANEL^CPT4|||20261001123200
-&gt;&gt; [LISDESK Engine] Barcode: *CMP-984210* Assigned &bull; Specimen Verified</pre>
+&gt;&gt; [LISDESK Engine] 2D Barcode *CMP-984210* Generated &bull; Routing to Cobas 8000</pre>
             </div>
           </div>
         </div>
@@ -326,37 +474,39 @@ OBR|1|ORD9021||80053^COMPREHENSIVE METABOLIC PANEL^CPT4|||20261001123200
       <div class="arch-panel d-none" id="phase2">
         <div class="row align-items-center">
           <div class="col-lg-6 mb-4 mb-lg-0">
-            <span class="badge bg-info text-white mb-2 px-3 py-1">PHASE 2: ANALYZER DISPATCH &amp; WESTGARD QC</span>
-            <h3 class="fw-bold mb-3">Bidirectional Host Query &amp; Real-Time QC</h3>
+            <span class="badge bg-info text-white mb-2 px-3 py-1 font-mono small">PHASE 2 &bull; ANALYZER DISPATCH &amp; QC</span>
+            <h3 class="fw-bold mb-3">Sub-Second Host Query &amp; Multi-Rule Westgard QC</h3>
             <p class="text-muted mb-4">
-              When the analyzer scans the tube barcode, LISDESK responds in &lt; 30ms with the exact test profile, automatic dilution ratio, and reflex rules. Levey-Jennings charts and multi-rule Westgard evaluations execute continuously to prevent out-of-control runs.
+              When an instrument scans a tube barcode, LISDESK responds in &lt; 30ms with test profiles, auto-dilution factors, and reflex rules. Levey-Jennings evaluations run continuously to lock out failing runs automatically.
             </p>
             <div class="d-flex flex-column gap-2">
-              <div class="d-flex align-items-center gap-2 p-2 bg-light rounded border">
+              <div class="d-flex align-items-center gap-2 p-2 bg-slate-50 rounded border">
                 <i class="bi bi-shield-check text-success fs-5"></i>
-                <span class="small fw-semibold">Automatic analyzer lockout when QC violates 1:3s or 2:2s Westgard rules</span>
+                <span class="small fw-semibold">Automatic instrument lockout when QC violates 1:3s or 2:2s Westgard rules</span>
               </div>
-              <div class="d-flex align-items-center gap-2 p-2 bg-light rounded border">
+              <div class="d-flex align-items-center gap-2 p-2 bg-slate-50 rounded border">
                 <i class="bi bi-arrow-repeat text-primary fs-5"></i>
-                <span class="small fw-semibold">Automatic reflexing of abnormal findings to confirmatory panels</span>
+                <span class="small fw-semibold">Rule-driven reflexing of critical values to confirmatory assays</span>
               </div>
             </div>
           </div>
           <div class="col-lg-6">
-            <div class="p-4 bg-white rounded-3 border shadow-sm">
-              <h6 class="fw-bold mb-3"><i class="bi bi-graph-up text-primary me-2"></i>Levey-Jennings Real-Time Evaluation</h6>
-              <div class="progress mb-2" style="height: 10px;">
-                <div class="progress-bar bg-success" style="width: 70%"></div>
-                <div class="progress-bar bg-warning" style="width: 25%"></div>
-                <div class="progress-bar bg-danger" style="width: 5%"></div>
+            <div class="p-4 bg-white rounded border shadow-sm">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h6 class="fw-bold mb-0"><i class="bi bi-graph-up text-primary me-2"></i>Levey-Jennings QC Evaluation</h6>
+                <span class="badge bg-success-subtle text-success border border-success-subtle">PASSED (All Rules)</span>
               </div>
-              <div class="d-flex justify-content-between small text-muted mb-3">
-                <span>Mean: 142.0 mEq/L</span>
-                <span>SD: &plusmn; 1.2</span>
-                <span class="text-success fw-bold">Westgard: PASSED</span>
+              <div class="progress mb-2" style="height: 8px;">
+                <div class="progress-bar bg-success" style="width: 80%"></div>
+                <div class="progress-bar bg-warning" style="width: 20%"></div>
               </div>
-              <div class="p-2 bg-light rounded text-center small fw-semibold text-secondary">
-                <i class="bi bi-check-circle-fill me-1"></i> Cobas 8000 Line 02 &bull; Active &amp; Verified
+              <div class="d-flex justify-content-between small text-muted mb-3 font-mono">
+                <span>Analyte: Sodium (Na+)</span>
+                <span>Mean: 140.2 mEq/L</span>
+                <span>SD: &plusmn; 1.1</span>
+              </div>
+              <div class="p-2 bg-slate-50 rounded text-center small fw-semibold text-slate-700 border">
+                <i class="bi bi-check-circle-fill text-success me-1"></i> Cobas 8000 &bull; Line 02 Active &amp; Verified
               </div>
             </div>
           </div>
@@ -367,22 +517,22 @@ OBR|1|ORD9021||80053^COMPREHENSIVE METABOLIC PANEL^CPT4|||20261001123200
       <div class="arch-panel d-none" id="phase3">
         <div class="row align-items-center">
           <div class="col-lg-6 mb-4 mb-lg-0">
-            <span class="badge bg-secondary text-white mb-2 px-3 py-1">PHASE 3: AUTO-VERIFICATION &amp; SIGN-OUT</span>
-            <h3 class="fw-bold mb-3">Algorithmic Decision Support in Milliseconds</h3>
+            <span class="badge bg-success text-white mb-2 px-3 py-1 font-mono small">PHASE 3 &bull; AUTO-VERIFICATION &amp; RELEASE</span>
+            <h3 class="fw-bold mb-3">88%+ Auto-Verification with Multi-Year Delta History</h3>
             <p class="text-muted mb-4">
-              Free your pathologists and senior technologists from repetitive normal reviews. Our rule engine cross-references patient age, gender, historical delta checks, and clinical ranges to verify 85%+ of tests instantly while routing critical values directly to pager/mobile alerts.
+              Eliminate manual review bottlenecks on normal routine runs. LISDESK evaluates patient age, gender, historical baseline trends, and critical value thresholds in milliseconds, transmitting results directly to EHR charts.
             </p>
             <ul class="feature-check-list">
-              <li><i class="bi bi-check-circle-fill"></i> Delta checks against 365-day patient baseline history</li>
-              <li><i class="bi bi-check-circle-fill"></i> CAP Cancer Protocol synoptic reporting for anatomic pathology</li>
-              <li><i class="bi bi-check-circle-fill"></i> Instant SMS / secure email notification to attending physicians</li>
+              <li><i class="bi bi-check-circle-fill"></i> Delta checks evaluated against 365-day patient baseline</li>
+              <li><i class="bi bi-check-circle-fill"></i> College of American Pathologists (CAP) synoptic cancer reporting</li>
+              <li><i class="bi bi-check-circle-fill"></i> Panic value alerts routed immediately to ordering physicians via SMS/email</li>
             </ul>
           </div>
           <div class="col-lg-6">
-            <div class="p-4 bg-light rounded-3 border">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="fw-bold text-primary">Patient Cumulative Trend</span>
-                <span class="badge bg-success">AUTO-VERIFIED</span>
+            <div class="p-3 bg-white rounded border shadow-sm">
+              <div class="d-flex justify-content-between align-items-center mb-2 pb-2 border-bottom">
+                <span class="fw-bold text-slate-900 small">Automated Cumulative Trend Check</span>
+                <span class="badge bg-success font-mono">AUTO-RELEASED</span>
               </div>
               <div class="table-responsive">
                 <table class="table table-sm table-bordered bg-white mb-0 small">
@@ -391,27 +541,27 @@ OBR|1|ORD9021||80053^COMPREHENSIVE METABOLIC PANEL^CPT4|||20261001123200
                       <th>Analyte</th>
                       <th>Result</th>
                       <th>Ref Range</th>
-                      <th>Delta</th>
+                      <th>Delta Status</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td>Glucose</td>
+                      <td>Glucose (Fasting)</td>
                       <td class="fw-bold">94 mg/dL</td>
                       <td>70 - 99</td>
-                      <td class="text-success">+2% (Normal)</td>
+                      <td class="text-success font-mono">+1.8% (Normal)</td>
                     </tr>
                     <tr>
                       <td>Creatinine</td>
                       <td class="fw-bold">0.9 mg/dL</td>
                       <td>0.6 - 1.2</td>
-                      <td class="text-success">0% (Stable)</td>
+                      <td class="text-success font-mono">0.0% (Stable)</td>
                     </tr>
                     <tr>
-                      <td>Potassium</td>
+                      <td>Potassium (K+)</td>
                       <td class="fw-bold">4.2 mEq/L</td>
                       <td>3.5 - 5.0</td>
-                      <td class="text-success">-1% (Normal)</td>
+                      <td class="text-success font-mono">-0.5% (Normal)</td>
                     </tr>
                   </tbody>
                 </table>
@@ -425,31 +575,30 @@ OBR|1|ORD9021||80053^COMPREHENSIVE METABOLIC PANEL^CPT4|||20261001123200
       <div class="arch-panel d-none" id="phase4">
         <div class="row align-items-center">
           <div class="col-lg-6 mb-4 mb-lg-0">
-            <span class="badge bg-success text-white mb-2 px-3 py-1">PHASE 4: EMBEDDED RCM &amp; REVENUE CAPTURE</span>
-            <h3 class="fw-bold mb-3">Stop Denials Before the Test is Performed</h3>
+            <span class="badge bg-purple text-white mb-2 px-3 py-1 font-mono small" style="background: var(--purple);">PHASE 4 &bull; FRONT-END RCM BILLING</span>
+            <h3 class="fw-bold mb-3">Prevent Denials at Point-of-Order Intake</h3>
             <p class="text-muted mb-4">
-              Unlike legacy architectures that bolt on third-party billing weeks after accessioning, LISDESK integrates real-time EDI 270/271 insurance eligibility, NCD/LCD medical necessity checking, and clean 837P/837I claim generation at the point of order.
+              Stop laboratory billing rejections before testing starts. Integrated EDI ANSI 270/271 real-time eligibility checks, LCD/NCD medical necessity validation, and automated 837P claim generation reduce Days in A/R down to 24.2 days.
             </p>
             <div class="p-3 bg-white rounded border mb-3">
               <div class="d-flex justify-content-between align-items-center">
-                <span class="fw-bold text-dark">Average Days in Accounts Receivable</span>
-                <span class="fw-bold text-success fs-5">24.2 Days (vs 52 industry avg)</span>
+                <span class="fw-bold text-slate-900">Average Days in Accounts Receivable (A/R)</span>
+                <span class="fw-bold text-success fs-5">24.2 Days (vs 52.0 Industry Avg)</span>
               </div>
             </div>
           </div>
           <div class="col-lg-6">
-            <div class="p-4 bg-dark text-white rounded-3 shadow">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="text-secondary small fw-bold text-uppercase">Automated Claim Scrubbing</span>
-                <span class="badge bg-success">CLEAN CLAIM (100%)</span>
+            <div class="terminal-box">
+              <div class="d-flex justify-content-between align-items-center mb-2 pb-2 border-bottom border-slate-800">
+                <span class="text-slate-400 small">EDI 837P Real-Time Scrub Engine</span>
+                <span class="badge bg-success font-mono">CLEAN CLAIM (100%)</span>
               </div>
-              <div class="small font-monospace mb-2 text-muted">&gt; ANSI X12 837P Claim Scrubbing Active:</div>
-              <div class="p-2 bg-black rounded small text-light font-monospace mb-2">
+              <div class="small font-mono text-cyan mb-2">
                 CPT: 80053 (CMP) &bull; ICD-10: E11.9 (Type 2 Diabetes)<br>
-                LCD Policy: L34002 Medical Necessity Matched &bull; Prior Auth: Verified
+                Medicare LCD: L34002 Medical Necessity Matched &bull; Prior Auth: Verified
               </div>
-              <div class="text-success small fw-semibold">
-                <i class="bi bi-check-all me-1"></i> Auto-dispatched to Clearinghouse &bull; 0 Human Touches
+              <div class="text-success small fw-semibold font-mono">
+                <i class="bi bi-check-all me-1"></i> Auto-dispatched to Clearinghouse &bull; 0 Manual Touches
               </div>
             </div>
           </div>
@@ -461,28 +610,84 @@ OBR|1|ORD9021||80053^COMPREHENSIVE METABOLIC PANEL^CPT4|||20261001123200
 </section>
 
 <!-- ==========================================================================
+     Side-by-Side Enterprise Comparison Matrix
+     ========================================================================== -->
+<section class="section-padding bg-white">
+  <div class="container">
+    <div class="section-title-wrap">
+      <span class="section-kicker">Architecture Comparison</span>
+      <h2 class="section-title">Why Modern Laboratories Switch to LISDESK</h2>
+      <p class="section-lead">
+        A direct technical comparison between legacy client-server LIMS architectures and LISDESK 2026.
+      </p>
+    </div>
+
+    <div class="comparison-table-wrap">
+      <div class="table-responsive">
+        <table class="table comparison-table">
+          <thead class="table-light">
+            <tr>
+              <th style="width: 32%;">Operational Capability</th>
+              <th style="width: 34%;">Legacy Client-Server LIMS</th>
+              <th class="col-lisdesk-highlight text-primary" style="width: 34%;">LISDESK 2026 Enterprise</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="fw-semibold">Analyzer Connectivity</td>
+              <td class="text-muted">Requires separate 3rd-party middleware boxes per instrument</td>
+              <td class="col-lisdesk-highlight fw-semibold text-slate-900"><i class="bi bi-check-circle-fill text-success me-2"></i>700+ Native ASTM / HL7 drivers built-in</td>
+            </tr>
+            <tr>
+              <td class="fw-semibold">Auto-Verification Speed</td>
+              <td class="text-muted">Batch polling every 5-15 minutes with manual exceptions</td>
+              <td class="col-lisdesk-highlight fw-semibold text-slate-900"><i class="bi bi-check-circle-fill text-success me-2"></i>Sub-5ms event-driven auto-verification (>88%)</td>
+            </tr>
+            <tr>
+              <td class="fw-semibold">Genomics &amp; NGS Integration</td>
+              <td class="text-muted">Manual CSV exports, separate standalone bioinformatic tools</td>
+              <td class="col-lisdesk-highlight fw-semibold text-slate-900"><i class="bi bi-check-circle-fill text-success me-2"></i>Direct Illumina DRAGEN sync &amp; ACMG variant curation</td>
+            </tr>
+            <tr>
+              <td class="fw-semibold">Revenue Cycle Billing (RCM)</td>
+              <td class="text-muted">Delayed batch export to billing vendor weeks later</td>
+              <td class="col-lisdesk-highlight fw-semibold text-slate-900"><i class="bi bi-check-circle-fill text-success me-2"></i>Point-of-order EDI 270/271 eligibility &amp; 837P scrubbing</td>
+            </tr>
+            <tr>
+              <td class="fw-semibold">Regulatory Audit Trail</td>
+              <td class="text-muted">Scattered SQL logs requiring manual compliance reports</td>
+              <td class="col-lisdesk-highlight fw-semibold text-slate-900"><i class="bi bi-check-circle-fill text-success me-2"></i>Automated CAP/CLIA &amp; 21 CFR Part 11 electronic records</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
      Interactive Laboratory ROI & Turnaround Time Calculator
      ========================================================================== -->
-<section class="section-padding">
+<section class="section-padding bg-slate-100 border-top border-bottom">
   <div class="container">
     <div class="roi-card">
       <div class="row align-items-center">
         
         <div class="col-lg-5 mb-4 mb-lg-0">
-          <span class="badge bg-secondary text-white mb-2 px-3 py-1 text-uppercase" style="letter-spacing: 0.1em; font-size: 0.72rem;">LABORATORY EFFICIENCY CALCULATOR</span>
+          <span class="badge bg-slate-800 text-teal border border-slate-700 mb-2 px-3 py-1 text-uppercase font-mono" style="letter-spacing: 0.08em; font-size: 0.72rem; color: #5EEAD4 !important;">LABORATORY EFFICIENCY CALCULATOR</span>
           <h3 class="fw-bold text-white mb-3">Estimate Your Lab's Annual Savings</h3>
-          <p class="text-light opacity-75 mb-4" style="font-size: 0.95rem;">
-            See the projected impact of switching to LISDESK based on your laboratory's daily test volume and workflow automation.
+          <p class="text-slate-400 mb-4" style="font-size: 0.95rem;">
+            Calculate the projected operational impact of switching to LISDESK based on your daily specimen volume and automated verification workflows.
           </p>
 
           <label for="testVolumeSlider" class="form-label text-white fw-bold mb-2">
-            Average Daily Test Volume: <span id="volumeDisplay" class="text-info fw-bold ms-2">2,500 tests / day</span>
+            Average Daily Specimen Volume: <span id="volumeDisplay" class="text-info font-mono ms-2">2,500 tests / day</span>
           </label>
           <input type="range" class="roi-slider mb-4" id="testVolumeSlider" min="500" max="15000" step="250" value="2500">
 
           <div class="d-flex gap-2">
             <button type="button" class="btn btn-secondary-omni" data-bs-toggle="modal" data-bs-target="#demoModal">
-              Get Detailed ROI Report
+              Get Detailed ROI Breakdown
             </button>
           </div>
         </div>
@@ -491,23 +696,23 @@ OBR|1|ORD9021||80053^COMPREHENSIVE METABOLIC PANEL^CPT4|||20261001123200
           <div class="row g-3">
             <div class="col-md-4">
               <div class="roi-stat-box">
-                <div class="roi-number" id="annualSavings">$194,500</div>
-                <div class="text-white small fw-bold mt-2">Est. Annual Savings</div>
-                <div class="text-muted small">Tech labor &amp; redraw elimination</div>
+                <div class="roi-number font-mono" id="annualSavings">$214,000</div>
+                <div class="text-white small fw-bold mt-2">Est. Annual Cost Reduction</div>
+                <div class="text-slate-400 small">Tech labor &amp; redraw elimination</div>
               </div>
             </div>
             <div class="col-md-4">
               <div class="roi-stat-box">
-                <div class="roi-number" id="hoursSaved">188 hrs/wk</div>
-                <div class="text-white small fw-bold mt-2">Tech Time Liberated</div>
-                <div class="text-muted small">Auto-verification of normal runs</div>
+                <div class="roi-number font-mono" id="hoursSaved">200 hrs/wk</div>
+                <div class="text-white small fw-bold mt-2">Technologist Hours Saved</div>
+                <div class="text-slate-400 small">Auto-verification of normal runs</div>
               </div>
             </div>
             <div class="col-md-4">
               <div class="roi-stat-box">
-                <div class="roi-number" id="tatReduction">-44%</div>
-                <div class="text-white small fw-bold mt-2">TAT Acceleration</div>
-                <div class="text-muted small">From tube draw to chart drop</div>
+                <div class="roi-number font-mono" id="tatReduction">-46%</div>
+                <div class="text-white small fw-bold mt-2">Average TAT Acceleration</div>
+                <div class="text-slate-400 small">From tube draw to chart release</div>
               </div>
             </div>
           </div>
@@ -519,15 +724,15 @@ OBR|1|ORD9021||80053^COMPREHENSIVE METABOLIC PANEL^CPT4|||20261001123200
 </section>
 
 <!-- ==========================================================================
-     Real-World Case Studies / Testimonials
+     Real-World Case Studies / Clinical Testimonials
      ========================================================================== -->
-<section class="section-padding bg-light" style="background-color: var(--bg-light) !important;">
+<section class="section-padding bg-white">
   <div class="container">
     <div class="section-title-wrap">
       <span class="section-kicker">Clinical Validation</span>
-      <h2 class="section-title">Trusted by Leading Diagnostic Centers</h2>
+      <h2 class="section-title">Trusted by Leading Diagnostic Healthcare Networks</h2>
       <p class="section-lead">
-        See how healthcare systems and reference laboratories scale operations with LISDESK.
+        See how hospitals, reference laboratories, and molecular pathology centers scale operations with LISDESK.
       </p>
     </div>
 
@@ -535,17 +740,17 @@ OBR|1|ORD9021||80053^COMPREHENSIVE METABOLIC PANEL^CPT4|||20261001123200
       <% if (typeof caseStudies !== 'undefined' && caseStudies && caseStudies.length > 0) { %>
         <% caseStudies.forEach(cs => { %>
           <div class="col-lg-4 col-md-6">
-            <div class="omni-card bg-white">
+            <div class="omni-card">
               <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-2 py-1"><%= cs.labType %></span>
-                <span class="fw-bold text-success" style="font-size: 0.9rem;"><%= cs.stat %></span>
+                <span class="badge bg-slate-100 text-slate-800 border px-2 py-1"><%= cs.labType %></span>
+                <span class="fw-bold text-success font-mono" style="font-size: 0.9rem;"><%= cs.stat %></span>
               </div>
               <h4 class="card-title fs-5 mb-1"><%= cs.title %></h4>
               <div class="text-muted small mb-3"><%= cs.subtitle %> &bull; <span class="fw-semibold"><%= cs.testsPerDay %></span></div>
               <p class="card-text small mb-4"><%= cs.summary %></p>
               
-              <div class="p-3 bg-light rounded-3 mt-auto border">
-                <p class="fst-italic text-dark small mb-2">&ldquo;<%= cs.quote %>&rdquo;</p>
+              <div class="p-3 bg-slate-50 rounded mt-auto border">
+                <p class="fst-italic text-slate-700 small mb-2">&ldquo;<%= cs.quote %>&rdquo;</p>
                 <div class="fw-bold text-primary small"><%= cs.author %></div>
               </div>
             </div>
@@ -553,30 +758,30 @@ OBR|1|ORD9021||80053^COMPREHENSIVE METABOLIC PANEL^CPT4|||20261001123200
         <% }) %>
       <% } else { %>
         <div class="col-md-4">
-          <div class="omni-card bg-white">
-            <span class="badge bg-primary-subtle text-primary border border-primary-subtle align-self-start mb-2">Hospital Health System</span>
+          <div class="omni-card">
+            <span class="badge bg-slate-100 text-slate-800 border align-self-start mb-2">Hospital Health System</span>
             <h4 class="card-title fs-5 mb-1">Turnaround Time Acceleration</h4>
             <div class="text-muted small mb-3">Auto-verification across high-volume core labs</div>
-            <p class="card-text small">Average 44% reduction in turnaround time from tube draw to physician chart drop with bidirectional instrument querying.</p>
-            <div class="p-3 bg-light rounded border mt-auto small text-primary fw-bold">Verified Clinical Metric</div>
+            <p class="card-text small">Average 46% reduction in turnaround time from tube draw to physician chart drop with bidirectional instrument querying.</p>
+            <div class="p-2 bg-slate-50 rounded border mt-auto small text-primary fw-bold">Verified Clinical Metric</div>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="omni-card bg-white">
-            <span class="badge bg-teal-subtle text-teal border align-self-start mb-2" style="color: var(--secondary);">Reference Laboratory</span>
+          <div class="omni-card">
+            <span class="badge bg-slate-100 text-slate-800 border align-self-start mb-2">Reference Laboratory</span>
             <h4 class="card-title fs-5 mb-1">First-Pass Clean Claim Yield</h4>
             <div class="text-muted small mb-3">Front-end ANSI 270/271 demographic scrubbing</div>
-            <p class="card-text small">Achieving 96.8% clean first-pass submission without third-party delay by checking medical necessity during accessioning.</p>
-            <div class="p-3 bg-light rounded border mt-auto small text-teal fw-bold" style="color: var(--secondary);">Verified Revenue Metric</div>
+            <p class="card-text small">Achieved 96.8% clean first-pass submission without third-party delay by checking medical necessity during accessioning.</p>
+            <div class="p-2 bg-slate-50 rounded border mt-auto small text-teal fw-bold" style="color: var(--secondary);">Verified Revenue Metric</div>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="omni-card bg-white">
-            <span class="badge bg-info-subtle text-info border align-self-start mb-2">Genomics &amp; NGS Core</span>
+          <div class="omni-card">
+            <span class="badge bg-slate-100 text-slate-800 border align-self-start mb-2">Genomics Core</span>
             <h4 class="card-title fs-5 mb-1">Automated Variant Interpretation</h4>
             <div class="text-muted small mb-3">Direct Illumina NovaSeq and DRAGEN sync</div>
-            <p class="card-text small">Cutting manual curator review hours by 65% through automated FASTQ-to-VCF classification aligned with ACMG/AMP guidelines.</p>
-            <div class="p-3 bg-light rounded border mt-auto small text-info fw-bold">Verified Genomic Metric</div>
+            <p class="card-text small">Cut manual curator review hours by 65% through automated FASTQ-to-VCF classification aligned with ACMG/AMP guidelines.</p>
+            <div class="p-2 bg-slate-50 rounded border mt-auto small text-purple fw-bold" style="color: var(--purple);">Verified Genomic Metric</div>
           </div>
         </div>
       <% } %>
@@ -592,10 +797,10 @@ OBR|1|ORD9021||80053^COMPREHENSIVE METABOLIC PANEL^CPT4|||20261001123200
     <div class="cta-banner">
       <div class="row align-items-center">
         <div class="col-lg-8 mb-4 mb-lg-0">
-          <span class="badge bg-white text-primary mb-2 px-3 py-1 fw-bold">START YOUR DIGITAL TRANSFORMATION</span>
+          <span class="badge bg-slate-800 text-white border border-slate-700 mb-2 px-3 py-1 fw-bold font-mono">ENTERPRISE CONSULTATION</span>
           <h2 class="fw-bold text-white mb-2">Ready to Upgrade Your Laboratory Infrastructure?</h2>
-          <p class="mb-0" style="max-width: 600px; font-size: 1.05rem;">
-            Schedule a personalized session with our clinical informatics architects. We will demonstrate how LISDESK connects with your exact analyzers, EHR, and billing workflow.
+          <p class="mb-0" style="max-width: 620px; font-size: 1.05rem;">
+            Schedule a personalized technical discovery session with our clinical informatics architects. We will demonstrate how LISDESK connects with your exact instruments, EHR, and billing workflow.
           </p>
         </div>
         <div class="col-lg-4 text-lg-end">
