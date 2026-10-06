@@ -48,7 +48,7 @@
         </div>
       </div>
 
-      <!-- Right Column: Unified Enterprise Workstation Console -->
+      <!-- Right Column: Pure Code-Rendered Diagnostic Workstation Studio -->
       <div class="col-lg-7">
         <div class="workstation-console">
           
@@ -60,32 +60,29 @@
               <span class="console-dot dot-green"></span>
             </div>
             <div class="console-title">
-              <i class="bi bi-laptop me-1"></i> LISDESK Console &bull; Central Core Laboratory &bull; Station #04
+              <i class="bi bi-laptop me-1"></i> LISDESK Workstation &bull; Central Core Laboratory &bull; Station #04
             </div>
             <div>
-              <span class="badge bg-primary px-2 py-1 font-mono" style="font-size: 0.68rem;">v2026.4.2</span>
+              <span class="badge bg-primary px-2 py-1 font-mono" style="font-size: 0.68rem;">v2026.4.2 &bull; ONLINE</span>
             </div>
           </div>
 
           <!-- Console Toolbar / Workstation View Switcher -->
           <div class="console-toolbar">
             <div class="console-tabs" id="heroConsoleTabs">
-              <button class="console-tab-btn active" data-view="lab">
-                <i class="bi bi-broadcast text-info"></i> Automated Lab Feed
-              </button>
-              <button class="console-tab-btn" data-view="queue">
-                <i class="bi bi-activity text-primary"></i> Specimen Queue
+              <button class="console-tab-btn active" data-view="core">
+                <i class="bi bi-activity text-primary"></i> Clinical Core Studio
               </button>
               <button class="console-tab-btn" data-view="genomics">
                 <i class="bi bi-dna text-purple" style="color: var(--purple);"></i> NGS Genomics
               </button>
               <button class="console-tab-btn" data-view="telemetry">
-                <i class="bi bi-hdd-network text-success"></i> HL7/ASTM Hub
+                <i class="bi bi-broadcast text-info"></i> HL7/ASTM Hub
               </button>
             </div>
             <div>
               <span class="console-live-badge">
-                <i class="bi bi-circle-fill" style="font-size: 0.5rem;"></i> ENGINE LIVE
+                <i class="bi bi-circle-fill" style="font-size: 0.5rem;"></i> ENGINE ACTIVE
               </span>
             </div>
           </div>
@@ -93,94 +90,200 @@
           <!-- Console Dynamic View Container -->
           <div class="console-view-container">
             
-            <!-- View 1: High-Definition Lab Automation View (Default) -->
-            <div class="console-view-panel" id="viewLab">
-              <div class="lab-automation-screen">
-                <img src="/public/image/hero-laboratory.jpg" alt="Clinical Diagnostic Laboratory Automation Track">
-                <div class="lab-automation-hud">
-                  <div class="d-flex justify-content-between align-items-start">
-                    <span class="hud-pill">
-                      <i class="bi bi-broadcast text-info"></i> Central Core Track Line 01 &bull; Active
-                    </span>
-                    <span class="hud-pill font-mono" style="color: #6EE7B7; border-color: rgba(110, 231, 183, 0.3);">
-                      <i class="bi bi-check-circle-fill text-success me-1"></i> 700+ Instruments Linked
-                    </span>
+            <!-- View 1: Clinical Core Studio (Split Queue & Decision Inspector) -->
+            <div class="console-view-panel" id="viewCore">
+              <div class="console-split-grid">
+                
+                <!-- Left Pane: Live Specimen Queue -->
+                <div class="console-queue-pane">
+                  <div class="console-queue-header">
+                    <span><i class="bi bi-list-check me-1"></i> Specimen Queue</span>
+                    <span class="badge bg-white text-dark border font-mono">1,420 Active</span>
                   </div>
-                  <div class="d-flex flex-wrap justify-content-between align-items-end gap-2">
-                    <span class="hud-pill hud-pill-highlight">
-                      <i class="bi bi-upc-scan text-white"></i> Positive 2D Patient ID &bull; SP-94821
-                    </span>
-                    <span class="hud-pill font-mono text-warning">
-                      <i class="bi bi-lightning-charge me-1"></i> &lt; 5ms AutoVerify Engine
-                    </span>
+                  
+                  <div class="console-queue-item active" onclick="window.selectSample('anderson', this)">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <span class="table-barcode font-mono"><i class="bi bi-upc me-1 text-muted"></i>SP-94821</span>
+                      <span class="badge-status badge-status-auto">Auto-Verified</span>
+                    </div>
+                    <div class="fw-semibold text-dark small">Anderson, James (48M)</div>
+                    <div class="text-muted" style="font-size: 0.725rem;">CMP Panel &bull; Cobas 8000 &bull; 8s ago</div>
+                  </div>
+
+                  <div class="console-queue-item" onclick="window.selectSample('rodriguez', this)">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <span class="table-barcode font-mono"><i class="bi bi-upc me-1 text-muted"></i>SP-94822</span>
+                      <span class="badge-status badge-status-auto">Auto-Verified</span>
+                    </div>
+                    <div class="fw-semibold text-dark small">Rodriguez, Maria (34F)</div>
+                    <div class="text-muted" style="font-size: 0.725rem;">Lipid + hs-CRP &bull; Alinity &bull; 14s ago</div>
+                  </div>
+
+                  <div class="console-queue-item" onclick="window.selectSample('chen', this)">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <span class="table-barcode font-mono"><i class="bi bi-upc me-1 text-muted"></i>SP-94823</span>
+                      <span class="badge-status badge-status-review">Review Flag</span>
+                    </div>
+                    <div class="fw-semibold text-dark small">Chen, Larry (62M)</div>
+                    <div class="text-muted" style="font-size: 0.725rem;">Renal Function &bull; Cobas 8000 &bull; 26s ago</div>
+                  </div>
+
+                  <div class="console-queue-item" onclick="window.selectSample('patel', this)">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <span class="table-barcode font-mono"><i class="bi bi-upc me-1 text-muted"></i>SP-94824</span>
+                      <span class="badge-status badge-status-auto">Auto-Verified</span>
+                    </div>
+                    <div class="fw-semibold text-dark small">Patel, Sarah (29F)</div>
+                    <div class="text-muted" style="font-size: 0.725rem;">CBC w/ Diff &bull; Sysmex XN &bull; 40s ago</div>
+                  </div>
+
+                  <div class="console-queue-item" onclick="window.selectSample('williams', this)">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <span class="table-barcode font-mono"><i class="bi bi-upc me-1 text-muted"></i>SP-94825</span>
+                      <span class="badge-status badge-status-auto">Auto-Verified</span>
+                    </div>
+                    <div class="fw-semibold text-dark small">Williams, David (71M)</div>
+                    <div class="text-muted" style="font-size: 0.725rem;">Troponin I &bull; Atellica &bull; 58s ago</div>
                   </div>
                 </div>
+
+                <!-- Right Pane: Active Specimen Decision Inspector -->
+                <div class="console-inspector-pane">
+                  <div class="inspector-patient-box">
+                    <div class="d-flex justify-content-between align-items-start">
+                      <div>
+                        <div class="fw-bold text-dark small" id="inspectorName">Anderson, James M.</div>
+                        <div class="text-muted font-mono" style="font-size: 0.72rem;">MRN: #984210 &bull; 48Y / M &bull; Fasting Draw</div>
+                      </div>
+                      <span class="badge bg-primary text-white font-mono" style="font-size: 0.68rem;">CMP14</span>
+                    </div>
+                  </div>
+
+                  <!-- Analytes List with Visual Range Bars -->
+                  <div class="mb-2" id="inspectorAnalytes">
+                    <div class="analyte-row">
+                      <div>
+                        <div class="analyte-name">Glucose (Fasting)</div>
+                        <div class="analyte-ref">Ref: 70 - 99 mg/dL</div>
+                      </div>
+                      <div class="d-flex align-items-center gap-2">
+                        <div class="analyte-bar"><div class="analyte-bar-fill" style="width: 55%;"></div></div>
+                        <span class="analyte-val">94 mg/dL</span>
+                        <span class="badge bg-success-subtle text-success border border-success-subtle font-mono" style="font-size: 0.65rem;">NORMAL</span>
+                      </div>
+                    </div>
+
+                    <div class="analyte-row">
+                      <div>
+                        <div class="analyte-name">Potassium (K+)</div>
+                        <div class="analyte-ref">Ref: 3.5 - 5.0 mEq/L</div>
+                      </div>
+                      <div class="d-flex align-items-center gap-2">
+                        <div class="analyte-bar"><div class="analyte-bar-fill" style="width: 60%;"></div></div>
+                        <span class="analyte-val">4.2 mEq/L</span>
+                        <span class="badge bg-success-subtle text-success border border-success-subtle font-mono" style="font-size: 0.65rem;">NORMAL</span>
+                      </div>
+                    </div>
+
+                    <div class="analyte-row">
+                      <div>
+                        <div class="analyte-name">Creatinine (eGFR)</div>
+                        <div class="analyte-ref">Ref: 0.6 - 1.2 mg/dL</div>
+                      </div>
+                      <div class="d-flex align-items-center gap-2">
+                        <div class="analyte-bar"><div class="analyte-bar-fill" style="width: 48%;"></div></div>
+                        <span class="analyte-val">0.9 mg/dL</span>
+                        <span class="badge bg-success-subtle text-success border border-success-subtle font-mono" style="font-size: 0.65rem;">OPTIMAL</span>
+                      </div>
+                    </div>
+
+                    <div class="analyte-row">
+                      <div>
+                        <div class="analyte-name">Sodium (Na+)</div>
+                        <div class="analyte-ref">Ref: 136 - 145 mEq/L</div>
+                      </div>
+                      <div class="d-flex align-items-center gap-2">
+                        <div class="analyte-bar"><div class="analyte-bar-fill" style="width: 52%;"></div></div>
+                        <span class="analyte-val">140 mEq/L</span>
+                        <span class="badge bg-success-subtle text-success border border-success-subtle font-mono" style="font-size: 0.65rem;">NORMAL</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Decision Stamp -->
+                  <div class="decision-audit-badge">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <span class="text-success fw-bold"><i class="bi bi-shield-check me-1"></i>AutoVerify Rule #80053 Passed</span>
+                      <span class="text-muted font-mono" style="font-size: 0.7rem;">&lt; 3.2ms</span>
+                    </div>
+                    <div class="text-slate-600" style="font-size: 0.72rem;">
+                      Delta Check: +0.4% from 365d baseline &bull; Westgard 1:2s: PASSED &bull; Zero Flags
+                    </div>
+                  </div>
+
+                  <!-- Quick Action Buttons -->
+                  <div class="d-flex gap-2 mt-2 pt-2 border-top">
+                    <button type="button" class="btn btn-sm btn-primary-omni py-1 px-2" style="font-size: 0.76rem;" onclick="window.showOmniToast('Specimen SP-94821 released to Epic EHR successfully.')">
+                      <i class="bi bi-send-check me-1"></i> E-Sign to EHR
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-omni py-1 px-2" style="font-size: 0.76rem;" onclick="window.showOmniToast('2D DataMatrix barcode queued for re-print.')">
+                      <i class="bi bi-printer me-1"></i> Barcode
+                    </button>
+                  </div>
+
+                </div>
+
               </div>
             </div>
 
-            <!-- View 2: Specimen Queue Table View -->
-            <div class="console-view-panel d-none" id="viewQueue">
-              <div class="p-2">
-                <div class="table-responsive">
-                  <table class="specimen-table">
-                    <thead>
-                      <tr>
-                        <th>Accession #</th>
-                        <th>Patient / Demographic</th>
-                        <th>Test Profile</th>
-                        <th>Analyzer Line</th>
-                        <th>Delta / Range</th>
-                        <th>Status</th>
-                      </tr>
-                    </thead>
-                    <tbody id="consoleSpecimenBody">
-                      <!-- Populated dynamically via JS -->
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-
-            <!-- View 3: NGS Genomics View -->
+            <!-- View 2: NGS Genomics View -->
             <div class="console-view-panel d-none" id="viewGenomics">
-              <div class="p-2">
+              <div class="p-3">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="fw-bold small text-dark"><i class="bi bi-dna text-purple me-1"></i> Illumina DRAGEN Sequencing Pipeline</span>
+                  <span class="badge bg-purple-subtle text-purple border border-purple-subtle font-mono">52-GENE SOLID TUMOR</span>
+                </div>
                 <div class="table-responsive">
                   <table class="specimen-table">
                     <thead>
                       <tr>
                         <th>Assay ID</th>
-                        <th>Patient / Subject</th>
-                        <th>Targeted Panel</th>
-                        <th>Sequencer</th>
-                        <th>Metric / Coverage</th>
-                        <th>ACMG Status</th>
+                        <th>Subject</th>
+                        <th>Targeted Gene Panel</th>
+                        <th>Coverage</th>
+                        <th>Variant (VCF)</th>
+                        <th>ACMG Tier</th>
                       </tr>
                     </thead>
                     <tbody id="consoleGenomicsBody">
-                      <!-- Populated dynamically via JS -->
+                      <!-- Populated via JS -->
                     </tbody>
                   </table>
                 </div>
               </div>
             </div>
 
-            <!-- View 4: HL7 / ASTM Telemetry Stream -->
+            <!-- View 3: HL7 / ASTM Telemetry Stream -->
             <div class="console-view-panel d-none" id="viewTelemetry">
-              <div class="p-2">
+              <div class="p-3">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="fw-bold small text-dark"><i class="bi bi-broadcast text-info me-1"></i> Universal Instrument Telemetry &bull; ASTM / HL7 Hub</span>
+                  <span class="badge bg-success-subtle text-success border border-success-subtle font-mono">18/18 DRIVERS LIVE</span>
+                </div>
                 <div class="table-responsive">
                   <table class="specimen-table">
                     <thead>
                       <tr>
                         <th>Interface</th>
                         <th>Target System</th>
-                        <th>Protocol / Stream</th>
-                        <th>Socket / Port</th>
-                        <th>Telemetry Latency</th>
-                        <th>Connection</th>
+                        <th>Protocol</th>
+                        <th>Port</th>
+                        <th>Roundtrip Latency</th>
+                        <th>Status</th>
                       </tr>
                     </thead>
                     <tbody id="consoleTelemetryBody">
-                      <!-- Populated dynamically via JS -->
+                      <!-- Populated via JS -->
                     </tbody>
                   </table>
                 </div>
@@ -202,6 +305,9 @@
             <div class="console-stat-pill d-none d-sm-flex">
               <i class="bi bi-file-earmark-check text-teal fs-6" style="color: var(--secondary);"></i>
               <span>Clean Claims: <strong>97.2%</strong></span>
+            </div>
+            <div class="console-stat-pill font-mono" style="font-size: 0.72rem; color: var(--secondary);">
+              &lt; 5ms AutoVerify
             </div>
           </div>
 

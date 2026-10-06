@@ -101,8 +101,7 @@ function initConsoleWorkstation() {
 
   // View Panels mapping
   const panels = {
-    lab: document.getElementById('viewLab'),
-    queue: document.getElementById('viewQueue'),
+    core: document.getElementById('viewCore'),
     genomics: document.getElementById('viewGenomics'),
     telemetry: document.getElementById('viewTelemetry')
   };
@@ -113,7 +112,7 @@ function initConsoleWorkstation() {
         tabBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
 
-        const viewKey = btn.getAttribute('data-view') || 'lab';
+        const viewKey = btn.getAttribute('data-view') || 'core';
         Object.keys(panels).forEach(key => {
           if (panels[key]) {
             if (key === viewKey) {
@@ -127,16 +126,103 @@ function initConsoleWorkstation() {
     });
   }
 
-  // Row selection handler
-  window.selectConsoleRow = (row) => {
-    if (tbodyQueue) {
-      tbodyQueue.querySelectorAll('tr').forEach(r => r.classList.remove('selected'));
-      row.classList.add('selected');
+  // Interactive Sample Selection & Inspector Data
+  const sampleProfiles = {
+    anderson: {
+      name: 'Anderson, James M.',
+      mrn: 'MRN: #984210 • 48Y / M • Fasting Draw',
+      panel: 'CMP14',
+      analytes: [
+        { name: 'Glucose (Fasting)', ref: 'Ref: 70 - 99 mg/dL', val: '94 mg/dL', pct: '55%', tag: 'NORMAL', tagCls: 'bg-success-subtle text-success border-success-subtle' },
+        { name: 'Potassium (K+)', ref: 'Ref: 3.5 - 5.0 mEq/L', val: '4.2 mEq/L', pct: '60%', tag: 'NORMAL', tagCls: 'bg-success-subtle text-success border-success-subtle' },
+        { name: 'Creatinine (eGFR)', ref: 'Ref: 0.6 - 1.2 mg/dL', val: '0.9 mg/dL', pct: '48%', tag: 'OPTIMAL', tagCls: 'bg-success-subtle text-success border-success-subtle' },
+        { name: 'Sodium (Na+)', ref: 'Ref: 136 - 145 mEq/L', val: '140 mEq/L', pct: '52%', tag: 'NORMAL', tagCls: 'bg-success-subtle text-success border-success-subtle' }
+      ]
+    },
+    rodriguez: {
+      name: 'Rodriguez, Maria K.',
+      mrn: 'MRN: #739104 • 34Y / F • Routine Draw',
+      panel: 'LIPID+CRP',
+      analytes: [
+        { name: 'Total Cholesterol', ref: 'Ref: < 200 mg/dL', val: '182 mg/dL', pct: '50%', tag: 'DESIRABLE', tagCls: 'bg-success-subtle text-success border-success-subtle' },
+        { name: 'HDL Cholesterol', ref: 'Ref: > 50 mg/dL', val: '58 mg/dL', pct: '65%', tag: 'OPTIMAL', tagCls: 'bg-success-subtle text-success border-success-subtle' },
+        { name: 'LDL Cholesterol', ref: 'Ref: < 100 mg/dL', val: '98 mg/dL', pct: '48%', tag: 'NORMAL', tagCls: 'bg-success-subtle text-success border-success-subtle' },
+        { name: 'hs-CRP (Cardio)', ref: 'Ref: < 1.0 mg/L', val: '0.8 mg/L', pct: '40%', tag: 'LOW RISK', tagCls: 'bg-success-subtle text-success border-success-subtle' }
+      ]
+    },
+    chen: {
+      name: 'Chen, Larry T.',
+      mrn: 'MRN: #481920 • 62Y / M • Urgent Care',
+      panel: 'RENAL+K',
+      analytes: [
+        { name: 'Potassium (K+)', ref: 'Ref: 3.5 - 5.0 mEq/L', val: '5.8 mEq/L', pct: '92%', tag: 'HIGH CRITICAL', tagCls: 'bg-danger-subtle text-danger border-danger-subtle' },
+        { name: 'Serum Creatinine', ref: 'Ref: 0.6 - 1.2 mg/dL', val: '2.1 mg/dL', pct: '88%', tag: 'ELEVATED', tagCls: 'bg-warning-subtle text-warning border-warning-subtle' },
+        { name: 'Blood Urea Nitrogen', ref: 'Ref: 7 - 20 mg/dL', val: '38 mg/dL', pct: '85%', tag: 'HIGH', tagCls: 'bg-warning-subtle text-warning border-warning-subtle' },
+        { name: 'eGFR CKD-EPI', ref: 'Ref: > 60 mL/min', val: '32 mL/min', pct: '30%', tag: 'STAGE 3B', tagCls: 'bg-danger-subtle text-danger border-danger-subtle' }
+      ]
+    },
+    patel: {
+      name: 'Patel, Sarah V.',
+      mrn: 'MRN: #601839 • 29Y / F • Pre-Op Screen',
+      panel: 'CBC-DIFF',
+      analytes: [
+        { name: 'White Blood Cells', ref: 'Ref: 4.5 - 11.0 K/uL', val: '6.8 K/uL', pct: '50%', tag: 'NORMAL', tagCls: 'bg-success-subtle text-success border-success-subtle' },
+        { name: 'Hemoglobin (Hgb)', ref: 'Ref: 12.0 - 15.5 g/dL', val: '13.8 g/dL', pct: '60%', tag: 'NORMAL', tagCls: 'bg-success-subtle text-success border-success-subtle' },
+        { name: 'Platelets', ref: 'Ref: 150 - 450 K/uL', val: '245 K/uL', pct: '52%', tag: 'NORMAL', tagCls: 'bg-success-subtle text-success border-success-subtle' },
+        { name: 'Neutrophils %', ref: 'Ref: 40 - 70 %', val: '58 %', pct: '56%', tag: 'NORMAL', tagCls: 'bg-success-subtle text-success border-success-subtle' }
+      ]
+    },
+    williams: {
+      name: 'Williams, David B.',
+      mrn: 'MRN: #892014 • 71Y / M • ED Chest Pain',
+      panel: 'CARDIAC',
+      analytes: [
+        { name: 'Troponin I (hs-cTnI)', ref: 'Ref: < 0.04 ng/mL', val: '<0.01 ng/mL', pct: '20%', tag: 'NEGATIVE', tagCls: 'bg-success-subtle text-success border-success-subtle' },
+        { name: 'CK-MB Mass', ref: 'Ref: < 5.0 ng/mL', val: '1.8 ng/mL', pct: '35%', tag: 'NORMAL', tagCls: 'bg-success-subtle text-success border-success-subtle' },
+        { name: 'Myoglobin', ref: 'Ref: < 85 ng/mL', val: '32 ng/mL', pct: '38%', tag: 'NORMAL', tagCls: 'bg-success-subtle text-success border-success-subtle' },
+        { name: 'BNP (Natriuretic)', ref: 'Ref: < 100 pg/mL', val: '45 pg/mL', pct: '45%', tag: 'NORMAL', tagCls: 'bg-success-subtle text-success border-success-subtle' }
+      ]
     }
   };
 
-  // Initial render of all tables
-  renderQueueTable();
+  window.selectSample = (key, el) => {
+    const data = sampleProfiles[key];
+    if (!data) return;
+
+    // Highlight clicked row
+    const items = document.querySelectorAll('.console-queue-item');
+    items.forEach(i => i.classList.remove('active'));
+    if (el) el.classList.add('active');
+
+    // Update inspector
+    const nameEl = document.getElementById('inspectorName');
+    const analytesEl = document.getElementById('inspectorAnalytes');
+
+    if (nameEl) {
+      nameEl.textContent = data.name;
+      if (nameEl.nextElementSibling) {
+        nameEl.nextElementSibling.textContent = data.mrn;
+      }
+    }
+
+    if (analytesEl) {
+      analytesEl.innerHTML = data.analytes.map(a => `
+        <div class="analyte-row">
+          <div>
+            <div class="analyte-name">${a.name}</div>
+            <div class="analyte-ref">${a.ref}</div>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <div class="analyte-bar"><div class="analyte-bar-fill" style="width: ${a.pct};"></div></div>
+            <span class="analyte-val">${a.val}</span>
+            <span class="badge ${a.tagCls} font-mono" style="font-size: 0.65rem;">${a.tag}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+  };
+
+  // Initial render of tables
   renderGenomicsTable();
   renderTelemetryTable();
 

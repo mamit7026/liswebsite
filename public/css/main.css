@@ -372,12 +372,6 @@ code, pre, .font-mono {
 }
 
 /* ==========================================================================
-   Hero Section - Clean Enterprise Grid
-   ========================================================================== */
-.hero-section {
-  position: relative;
-  background-color: #FFFFFF;
-/* ==========================================================================
    Hero Section - Clean Enterprise Architecture
    ========================================================================== */
 .hero-section {
@@ -553,7 +547,7 @@ code, pre, .font-mono {
 
 /* Console View Container (Fixed Height to align with hero left) */
 .console-view-container {
-  height: 350px;
+  height: 390px;
   position: relative;
   overflow: hidden;
   background: #FFFFFF;
@@ -565,52 +559,127 @@ code, pre, .font-mono {
   overflow-y: auto;
 }
 
-/* View 1: Lab Automation Image Screen */
-.lab-automation-screen {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  background: var(--slate-950);
+/* ==========================================================================
+   Code-Rendered Clinical Diagnostic Workstation Studio
+   ========================================================================== */
+.console-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  height: 390px;
+  background: #FFFFFF;
 }
 
-.lab-automation-screen img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+@media (max-width: 991px) {
+  .console-split-grid {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
 }
 
-.lab-automation-hud {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0.25) 0%, rgba(15, 23, 42, 0.8) 100%);
+.console-queue-pane {
+  border-right: 1px solid var(--border-subtle);
+  overflow-y: auto;
+  background: #FAFCFE;
+}
+
+.console-queue-header {
+  padding: 8px 12px;
+  background: var(--slate-100);
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--slate-600);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.console-queue-item {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--slate-100);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  background: #FFFFFF;
+}
+
+.console-queue-item:hover {
+  background: var(--slate-50);
+}
+
+.console-queue-item.active {
+  background: var(--primary-light);
+  border-left: 3px solid var(--primary);
+}
+
+.console-inspector-pane {
+  padding: 14px 16px;
+  overflow-y: auto;
+  background: #FFFFFF;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 14px;
-  pointer-events: none;
 }
 
-.hud-pill {
-  display: inline-flex;
+.inspector-patient-box {
+  background: var(--slate-50);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  margin-bottom: 10px;
+}
+
+.analyte-row {
+  display: flex;
   align-items: center;
-  gap: 7px;
-  background: rgba(15, 23, 42, 0.88);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #FFFFFF;
-  padding: 5px 12px;
-  border-radius: var(--radius-xs);
-  font-size: 0.775rem;
-  font-weight: 600;
-  box-shadow: var(--shadow-md);
-  pointer-events: auto;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--slate-100);
+  font-size: 0.815rem;
 }
 
-.hud-pill-highlight {
-  background: rgba(2, 101, 210, 0.85);
-  border-color: rgba(147, 197, 253, 0.4);
+.analyte-row:last-child {
+  border-bottom: none;
+}
+
+.analyte-name {
+  font-weight: 600;
+  color: var(--slate-800);
+}
+
+.analyte-val {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--slate-900);
+}
+
+.analyte-ref {
+  font-size: 0.725rem;
+  color: var(--slate-500);
+}
+
+.analyte-bar {
+  width: 55px;
+  height: 5px;
+  background: var(--slate-200);
+  border-radius: 999px;
+  position: relative;
+  overflow: hidden;
+}
+
+.analyte-bar-fill {
+  height: 100%;
+  background: var(--success);
+  border-radius: 999px;
+}
+
+.decision-audit-badge {
+  background: var(--success-light);
+  border: 1px solid var(--success-border);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  margin-top: 10px;
+  font-size: 0.775rem;
 }
 
 /* Console Specimen Table */
